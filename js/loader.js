@@ -53,14 +53,28 @@ $(document).ready(function(){
 
 		// Logged-in view
 		if ($('#filesApp').val() && typeof FileActions !=='undefined'){
- 			FileActions.register('application/pdf','Edit', OC.PERMISSION_READ, '',function(filename){
+			PDFViwerMime = [
+			    'application/pdf',
+			    'application/msword',
+			    'application/vnd.oasis.opendocument.text',
+			    'application/vnd.ms-word',
+			    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+			    'application/vnd.ms-excel',
+			    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+			    'application/vnd.oasis.opendocument.spreadsheet',
+			]
+			for (var i=0;i<PDFViwerMime.length;i++)
+			{
+			    mime=PDFViwerMime[i];
+ 			    FileActions.register(mime,'Edit', OC.PERMISSION_READ, '',function(filename){
 				if($('#isPublic').val()) {
 					showPDFviewer('', encodeURIComponent(sharingToken)+"&files="+encodeURIComponent(filename)+"&path="+encodeURIComponent(FileList.getCurrentDirectory()));
 				} else {
 					showPDFviewer(encodeURIComponent(FileList.getCurrentDirectory()), encodeURIComponent(filename));
 				}
+			    }
+			    FileActions.setDefault(mime,'Edit');
 			});
-			FileActions.setDefault('application/pdf','Edit');
 		}
 
 		// Public view
