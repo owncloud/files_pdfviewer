@@ -7,7 +7,7 @@ header("Cache-Control: no-cache, must-revalidate");
 header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
 $dir = isset($_GET['dir']) ? $_GET['dir'] : '';
-$file = isset($_GET['file']) ? $_GET['file'] : '';
+$file = isset($_GET['files']) ? $_GET['files'] : '';
 
 $uid = OCP\User::getUser();
 $fileview = new \OC\Files\View('/' . $uid . '/files');
