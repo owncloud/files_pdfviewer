@@ -72,9 +72,9 @@ $(document).ready(function(){
 				} else {
 					showPDFviewer(encodeURIComponent(FileList.getCurrentDirectory()), encodeURIComponent(filename));
 				}
-			    }
+			    });
 			    FileActions.setDefault(mime,'Edit');
-			});
+			};
 		}
 
 		// Public view
