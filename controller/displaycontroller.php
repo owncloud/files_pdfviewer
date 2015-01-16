@@ -39,9 +39,20 @@ class DisplayController extends Controller {
 	 * @return TemplateResponse
 	 */
 	public function showPdfViewer() {
-		$params = [
-			'urlGenerator' => $this->urlGenerator
-		];
+		$file = $_REQUEST['file'];
+		$datas = parse_url($file);
+		$results = explode('&', ($datas['query']));
+
+		$datas = array();
+		foreach ($results as $key => $value) {
+			list($k, $v) = explode('=', $value);
+			$datas[$k] = $v;
+		}
+
+		$params = array(
+			'urlGenerator' => $this->urlGenerator,
+			'filename' => $datas['files'],
+		);
 
 		return new TemplateResponse($this->appName, 'viewer', $params, 'blank');
 	}
