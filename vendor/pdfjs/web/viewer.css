@@ -903,11 +903,6 @@ html[dir='rtl'] .toolbarButton.pageDown::before {
   content: url(images/toolbarButton-print.png);
 }
 
-.toolbarButton.share::before,
-.secondaryToolbarButton.share::before {
-  content: url(images/toolbarButton-share.png);
-}
-
 .toolbarButton.openFile::before,
 .secondaryToolbarButton.openFile::before {
   content: url(images/toolbarButton-openFile.png);

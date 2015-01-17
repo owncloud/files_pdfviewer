@@ -33,6 +33,7 @@ http://sourceforge.net/adobe/cmap/wiki/License/
     <link rel="stylesheet" media="screen" type="text/css" href="<?php print_unescaped(OCP\Util::linkTo('core', 'vendor/jquery-ui/themes/base/jquery-ui.css')); ?>"/>
     <link rel="stylesheet" media="screen" type="text/css" href="<?php print_unescaped(OCP\Util::linkTo('core', 'css/jquery-ui-fixes.css')); ?>"/>
     <link rel="stylesheet" href="<?php print_unescaped(OCP\Util::linkTo('core', 'css/share.css')); ?>?v=1"/>
+    <link rel="stylesheet" href="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', 'css/share.css')); ?>"/>
 
     <script src="<?php p($urlGenerator->linkTo('files_pdfviewer', 'vendor/pdfjs/web/compatibility.js')) ?>?v=<?php p($version) ?>"></script>
     <!-- This snippet is used in production (included from viewer.html) -->
@@ -56,7 +57,7 @@ http://sourceforge.net/adobe/cmap/wiki/License/
     <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/l10n.js')); ?>?v=1"></script>
     <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/oc-requesttoken.js')); ?>?v=1"></script>
 
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', 'js/share.js')); ?>"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('files_pdfviewer', 'js/share.js')); ?>"></script>
   </head>
 
   <body tabindex="1">
