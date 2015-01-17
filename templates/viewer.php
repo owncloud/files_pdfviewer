@@ -30,10 +30,10 @@ http://sourceforge.net/adobe/cmap/wiki/License/
     <title>PDF.js viewer</title>
 
     <link rel="stylesheet" href="<?php p($urlGenerator->linkTo('files_pdfviewer', 'vendor/pdfjs/web/viewer.css')) ?>?v=<?php p($version) ?>"/>
-    <link rel="stylesheet" media="screen" type="text/css" href="<?php print_unescaped(OCP\Util::linkTo('core', 'vendor/jquery-ui/themes/base/jquery-ui.css')); ?>"/>
-    <link rel="stylesheet" media="screen" type="text/css" href="<?php print_unescaped(OCP\Util::linkTo('core', 'css/jquery-ui-fixes.css')); ?>"/>
-    <link rel="stylesheet" href="<?php print_unescaped(OCP\Util::linkTo('core', 'css/share.css')); ?>?v=1"/>
-    <link rel="stylesheet" href="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', 'css/share.css')); ?>"/>
+    <link rel="stylesheet" media="screen" type="text/css" href="<?php p($urlGenerator->linkTo('core', 'vendor/jquery-ui/themes/base/jquery-ui.css')); ?>"/>
+    <link rel="stylesheet" media="screen" type="text/css" href="<?php p($urlGenerator->linkTo('core', 'css/jquery-ui-fixes.css')); ?>"/>
+    <link rel="stylesheet" href="<?php p($urlGenerator->linkTo('core', 'css/share.css')); ?>?v=1"/>
+    <link rel="stylesheet" href="<?php p($urlGenerator->linkTo('files_pdfviewer', 'css/share.css')); ?>"/>
 
     <script src="<?php p($urlGenerator->linkTo('files_pdfviewer', 'vendor/pdfjs/web/compatibility.js')) ?>?v=<?php p($version) ?>"></script>
     <!-- This snippet is used in production (included from viewer.html) -->
@@ -44,18 +44,18 @@ http://sourceforge.net/adobe/cmap/wiki/License/
     <script src="<?php p($urlGenerator->linkTo('files_pdfviewer', 'js/workersrc.js')) ?>?v=<?php p($version) ?>"></script>
 
     <!-- ginormous load for sharing popup... -->
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'vendor/jquery/jquery.min.js'));?>"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'vendor/jquery/jquery-migrate.min.js'));?>"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'vendor/jquery-ui/ui/jquery-ui.custom.js'));?>"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'vendor/underscore/underscore.js'));?>"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'vendor/moment/min/moment-with-locales.js'));?>"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('', 'index.php'));?>/core/js/oc.js"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/jquery-tipsy.js')); ?>?v=1"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/jquery.ocdialog.js')); ?>?v=1"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/oc-dialogs.js')); ?>?v=1"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/js.js')); ?>?v=1"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/l10n.js')); ?>?v=1"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/oc-requesttoken.js')); ?>?v=1"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'vendor/jquery/jquery.min.js'));?>"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'vendor/jquery/jquery-migrate.min.js'));?>"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'vendor/jquery-ui/ui/jquery-ui.custom.js'));?>"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'vendor/underscore/underscore.js'));?>"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'vendor/moment/min/moment-with-locales.js'));?>"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('', 'index.php'));?>/core/js/oc.js"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/jquery-tipsy.js')); ?>?v=1"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/jquery.ocdialog.js')); ?>?v=1"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/oc-dialogs.js')); ?>?v=1"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/js.js')); ?>?v=1"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/l10n.js')); ?>?v=1"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/oc-requesttoken.js')); ?>?v=1"></script>
 
     <script type="text/javascript" src="<?php p($urlGenerator->linkTo('files_pdfviewer', 'js/share.js')); ?>"></script>
   </head>
