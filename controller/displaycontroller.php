@@ -36,10 +36,10 @@ class DisplayController extends Controller {
 	 * @PublicPage
 	 * @NoCSRFRequired
 	 *
+	 * @param string $file
 	 * @return TemplateResponse
 	 */
-	public function showPdfViewer() {
-		$file = $_REQUEST['file'];
+	public function showPdfViewer($file) {
 		$datas = parse_url($file);
 		$results = explode('&', ($datas['query']));
 
