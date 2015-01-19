@@ -54,4 +54,13 @@ class DisplayControllerTest extends TestCase {
 		$this->assertEquals($expectedResponse, $this->controller->showPdfViewer());
 	}
 
+	public function testFilename() {
+		$file = "/owncloud/index.php/apps/files/ajax/download.php?dir=%2F&files=foobar.pdf";
+		$params = array();
+
+		$this->controller->extractFilename($file, $params);
+
+		$this->assertEquals('foobar.pdf', $params['filename']);
+	}
+
 }
