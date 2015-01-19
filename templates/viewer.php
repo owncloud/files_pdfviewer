@@ -57,6 +57,7 @@ http://sourceforge.net/adobe/cmap/wiki/License/
     <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/l10n.js')); ?>?v=1"></script>
     <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/oc-requesttoken.js')); ?>?v=1"></script>
 
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/share.js')); ?>"></script>
     <script type="text/javascript" src="<?php p($urlGenerator->linkTo('files_pdfviewer', 'js/share.js')); ?>"></script>
   </head>
 
