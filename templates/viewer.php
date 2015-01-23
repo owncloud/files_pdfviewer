@@ -4,6 +4,7 @@
   $urlGenerator = $_['urlGenerator'];
   $version = \OCP\App::getAppVersion('files_pdfviewer');
 ?>
+asdf
 <!--
 Copyright 2012 Mozilla Foundation
 
