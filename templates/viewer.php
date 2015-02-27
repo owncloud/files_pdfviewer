@@ -30,6 +30,10 @@ http://sourceforge.net/adobe/cmap/wiki/License/
     <title>PDF.js viewer</title>
 
     <link rel="stylesheet" href="<?php p($urlGenerator->linkTo('files_pdfviewer', 'vendor/pdfjs/web/viewer.css')) ?>?v=<?php p($version) ?>"/>
+    <link rel="stylesheet" media="screen" type="text/css" href="<?php p($urlGenerator->linkTo('core', 'vendor/jquery-ui/themes/base/jquery-ui.css')); ?>"/>
+    <link rel="stylesheet" media="screen" type="text/css" href="<?php p($urlGenerator->linkTo('core', 'css/jquery-ui-fixes.css')); ?>"/>
+    <link rel="stylesheet" href="<?php p($urlGenerator->linkTo('core', 'css/share.css')); ?>?v=1"/>
+    <link rel="stylesheet" href="<?php p($urlGenerator->linkTo('files_pdfviewer', 'css/share.css')); ?>"/>
 
     <script src="<?php p($urlGenerator->linkTo('files_pdfviewer', 'vendor/pdfjs/web/compatibility.js')) ?>?v=<?php p($version) ?>"></script>
     <!-- This snippet is used in production (included from viewer.html) -->
@@ -38,10 +42,31 @@ http://sourceforge.net/adobe/cmap/wiki/License/
     <script src="<?php p($urlGenerator->linkTo('files_pdfviewer', 'vendor/pdfjs/build/pdf.js')) ?>?v=<?php p($version) ?>"></script>
     <script src="<?php p($urlGenerator->linkTo('files_pdfviewer', 'vendor/pdfjs/web/viewer.js')) ?>?v=<?php p($version) ?>"></script>
     <script src="<?php p($urlGenerator->linkTo('files_pdfviewer', 'js/workersrc.js')) ?>?v=<?php p($version) ?>"></script>
+
+    <!-- ginormous load for sharing popup... -->
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'vendor/jquery/jquery.min.js'));?>"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'vendor/jquery/jquery-migrate.min.js'));?>"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'vendor/jquery-ui/ui/jquery-ui.custom.js'));?>"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'vendor/underscore/underscore.js'));?>"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'vendor/moment/min/moment-with-locales.js'));?>"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('', 'index.php'));?>/core/js/oc.js"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/jquery-tipsy.js')); ?>?v=1"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/jquery.ocdialog.js')); ?>?v=1"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/oc-dialogs.js')); ?>?v=1"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/js.js')); ?>?v=1"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/l10n.js')); ?>?v=1"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/octemplate.js')); ?>?v=1"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/oc-requesttoken.js')); ?>?v=1"></script>
+
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('core', 'js/share.js')); ?>"></script>
+    <script type="text/javascript" src="<?php p($urlGenerator->linkTo('files_pdfviewer', 'js/share.js')); ?>"></script>
   </head>
 
   <body tabindex="1">
-    <div id="outerContainer" class="loadingInProgress">
+    <input id="allowShareWithLink" type="hidden" value="yes" name="allowShareWithLink" original-title="">
+    <input id="filename" type="hidden" value="<?php print_unescaped(htmlspecialchars($_['filename'], ENT_QUOTES)); ?>" name="filename">
+
+    <div id="outerContainer" style="z-index:1;" class="loadingInProgress">
 
       <div id="sidebarContainer">
         <div id="toolbarSidebar">
@@ -172,6 +197,10 @@ http://sourceforge.net/adobe/cmap/wiki/License/
 
                 <button id="openFile" class="toolbarButton openFile hiddenLargeView" title="Open File" tabindex="32" data-l10n-id="open_file">
                   <span data-l10n-id="open_file_label">Open</span>
+                </button>
+
+                <button id="share" class="toolbarButton share hiddenMediumView" title="Share" tabindex="12" data-l10n-id="share">
+                  <span data-l10n-id="share">Share</span>
                 </button>
 
                 <button id="print" class="toolbarButton print hiddenMediumView" title="Print" tabindex="33" data-l10n-id="print">

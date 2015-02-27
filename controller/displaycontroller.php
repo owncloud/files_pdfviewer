@@ -36,14 +36,43 @@ class DisplayController extends Controller {
 	 * @PublicPage
 	 * @NoCSRFRequired
 	 *
+	 * @param string $file
 	 * @return TemplateResponse
 	 */
-	public function showPdfViewer() {
-		$params = [
-			'urlGenerator' => $this->urlGenerator
-		];
+	public function showPdfViewer($file='') {
+		$params = array();
+		$this->extractFilename($file, $params);
+
+		$params['urlGenerator'] = $this->urlGenerator;
 
 		return new TemplateResponse($this->appName, 'viewer', $params, 'blank');
+	}
+
+	/**
+	 * Extract filename from url
+	 *
+	 * @param string $file
+	 * @param array $params
+	 */
+	public function extractFilename($file, &$params) {
+		if (empty($file) or !is_array($params)) {
+			return;
+		}
+
+		$urlParts = parse_url($file);
+		if (isset($urlParts['query']) && strpos($urlParts['query'], '&') !== false) {
+			$query = explode('&', ($urlParts['query']));
+			foreach ($query as $value) {
+				if (strpos($value, '=') !== false) {
+					list($k, $v) = explode('=', $value);
+					if ($k == 'files') {
+						$params['filename'] = $v;
+						return;
+					}
+				}
+			}
+		}
+
 	}
 
 }

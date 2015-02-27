@@ -1,0 +1,16 @@
+#dropdown {
+    right:14px;
+    top:32px;
+}
+
+.toolbarButton.share::before,
+.secondaryToolbarButton.share::before {
+    content: url(../img/toolbarButton-share.png);
+}
+
+@media screen and (min-resolution: 2dppx) {
+    .toolbarButton.share::before,
+    .secondaryToolbarButton.share::before {
+        content: url(../img/toolbarButton-share@2x.png);
+    }
+}
