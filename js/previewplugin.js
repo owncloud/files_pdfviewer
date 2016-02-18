@@ -91,9 +91,19 @@
 			}
 
 			if(!$('html').hasClass('ie8')) {
-				$(window).one('popstate', function (e) {
-					self.hide();
-				});
+				if (document.readyState !== 'complete') {
+					$(window).load(function() {
+						setTimeout(function() {
+							$(window).one('popstate', function (e) {
+								self.hide();
+							});
+						}, 0);
+					});
+				} else {
+					$(window).one('popstate', function (e) {
+						self.hide();
+					});
+	 			}
 			}
 		},
 
