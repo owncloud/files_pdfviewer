@@ -22,6 +22,20 @@ $array = array(
 	"window.file" => $file,
 	);
 
+echo("/**
+ * Checks if the page is displayed in an iframe. If not redirect to /.
+ **/
+function redirectIfNotDisplayedInFrame () {
+	try {
+		if (window.frameElement) {
+			return;
+		}
+	} catch (e) {}
+
+	window.location.href = '/';
+}
+redirectIfNotDisplayedInFrame();");
+
 // Echo it
 foreach ($array as  $setting => $value) {
 	echo($setting ."=".json_encode($value).";\n");
