@@ -23,5 +23,13 @@
     </dependencies>
     <shipped>true</shipped>
     <default_enable/>
+    <documentation>
+    	<user>https://doc.owncloud.org/missing</user>
+    	<admin>https://doc.owncloud.org/missing</admin>
+    	<developer>https://doc.owncloud.org/missing</developer>
+    </documentation>
+    <website>https://github.com/owncloud/files_pdfviewer</website>
+    <bugs>https://github.com/owncloud/files_pdfviewer/issues</bugs>
+    <repository type="git">https://github.com/owncloud/files_pdfviewer.git</repository>
     <ocsid>166049</ocsid>
 </info>
