@@ -39,7 +39,7 @@ script:
 
   # Run phpunit tests
   - cd tests
-  - sh -c "if [ '$CODECHECK' != '1' -a '$CODECHECK' != '2' ]; then phpunit --configuration phpunit.xml; fi"
+  - sh -c "if [ '$CODECHECK' != '1' -a '$CODECHECK' != '2' ]; then ../../../lib/composer/bin/phpunit --configuration phpunit.xml; fi"
   - cd ..
 
   # Create coverage report
