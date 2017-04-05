@@ -16,11 +16,13 @@
 	 * @namespace OCA.FilesPdfViewer.PreviewPlugin
 	 */
 	OCA.FilesPdfViewer.PreviewPlugin = {
+		fileList: null,
 
 		/**
 		 * @param fileList
 		 */
 		attach: function(fileList) {
+			this.fileList = fileList;
 			this._extendFileActions(fileList.fileActions);
 		},
 
@@ -32,7 +34,7 @@
 				$('footer').removeClass('hidden');
 			}
 
-			FileList.setViewerMode(false);
+			this.fileList.setViewerMode(false);
 
 			// replace the controls with our own
 			$('#app-content #controls').removeClass('hidden');
@@ -49,7 +51,7 @@
 			$iframe = $('<iframe id="pdframe" style="width:100%;height:100%;display:block;position:absolute;top:0;z-index:10;" src="'+viewer+'" sandbox="allow-scripts allow-same-origin allow-popups allow-modals allow-top-navigation" />');
 
 			if(isFileList === true) {
-				FileList.setViewerMode(true);
+				this.fileList.setViewerMode(true);
 			}
 
 			if ($('#isPublic').val()) {
