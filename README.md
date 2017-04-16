@@ -1,6 +1,6 @@
 files_pdfviewer
 ======
-
+bloody hack test
 This application integrates the [PDF.js](https://mozilla.github.io/pdf.js/) library into ownCloud. Using this application users can view their PDF files online without downloading the file.
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/owncloud/files_pdfviewer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/owncloud/files_pdfviewer/?branch=master)
