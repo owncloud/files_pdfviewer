@@ -31,5 +31,6 @@
     <website>https://github.com/owncloud/files_pdfviewer</website>
     <bugs>https://github.com/owncloud/files_pdfviewer/issues</bugs>
     <repository type="git">https://github.com/owncloud/files_pdfviewer.git</repository>
+    <screenshot>https://github.com/owncloud/screenshots/raw/cd5f83007e6037af6733d847548d2766be69a8a0/files_pdfviewer/files_pdfviewer.png</screenshot>
     <ocsid>166049</ocsid>
 </info>
