@@ -110,6 +110,58 @@
   cursor: pointer;
 }
 
+.annotationLayer .textWidgetAnnotation input,
+.annotationLayer .textWidgetAnnotation textarea {
+  background-color: rgba(0, 54, 255, 0.13);
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  font-size: 9px;
+  height: 100%;
+  padding: 0 3px;
+  vertical-align: top;
+  width: 100%;
+}
+
+.annotationLayer .textWidgetAnnotation textarea {
+  font: message-box;
+  font-size: 9px;
+  resize: none;
+}
+
+.annotationLayer .textWidgetAnnotation input[disabled],
+.annotationLayer .textWidgetAnnotation textarea[disabled] {
+  background: none;
+  border: 1px solid transparent;
+  cursor: not-allowed;
+}
+
+.annotationLayer .textWidgetAnnotation input:hover,
+.annotationLayer .textWidgetAnnotation textarea:hover {
+  border: 1px solid #000;
+}
+
+.annotationLayer .textWidgetAnnotation input:focus,
+.annotationLayer .textWidgetAnnotation textarea:focus {
+  background: none;
+  border: 1px solid transparent;
+}
+
+.annotationLayer .textWidgetAnnotation input.comb {
+  font-family: monospace;
+  padding-left: 2px;
+  padding-right: 0;
+}
+
+.annotationLayer .textWidgetAnnotation input.comb:focus {
+  /*
+   * Letter spacing is placed on the right side of each character. Hence, the
+   * letter spacing of the last character may be placed outside the visible
+   * area, causing horizontal scrolling. We avoid this by extending the width
+   * when the element has focus and revert this when it loses focus.
+   */
+  width: 115%;
+}
+
 .annotationLayer .popupWrapper {
   position: absolute;
   width: 20em;
@@ -141,7 +193,8 @@
 .annotationLayer .highlightAnnotation,
 .annotationLayer .underlineAnnotation,
 .annotationLayer .squigglyAnnotation,
-.annotationLayer .strikeoutAnnotation {
+.annotationLayer .strikeoutAnnotation,
+.annotationLayer .fileAttachmentAnnotation {
   cursor: pointer;
 }
 
@@ -164,6 +217,15 @@
 
 .pdfViewer.removePageBorders .page {
   margin: 0px auto 10px auto;
+  border: none;
+}
+
+.pdfViewer.singlePageView {
+  display: inline-block;
+}
+
+.pdfViewer.singlePageView .page {
+  margin: 0;
   border: none;
 }
 
@@ -209,12 +271,14 @@
 
 html {
   height: 100%;
+  width: 100%;
   /* Font size is needed to make the activity bar the correct size. */
   font-size: 10px;
 }
 
 body {
   height: 100%;
+  width: 100%;
   background-color: #404040;
   background-image: url(images/texture.png);
 }
@@ -1987,11 +2051,15 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   body[data-mozPrintCallback] #printContainer {
     display: block;
   }
+  #printContainer {
+    height: 100%;
+  }
   /* wrapper around (scaled) print canvas elements */
   #printContainer > div {
     position: relative;
     top: 0;
     left: 0;
+    height: 100%;
     overflow: hidden;
   }
   #printContainer canvas {
