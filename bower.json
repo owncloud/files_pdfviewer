@@ -1,0 +1,24 @@
+{
+  "name": "files_pdfviewer",
+  "homepage": "https://github.com/owncloud/files_pdfviewer",
+  "authors": [
+    "Victor Dubiniuk <dubiniuk@owncloud.com>"
+  ],
+  "description": "ownCloud pdf viewer app",
+  "main": "",
+  "license": "AGPL",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pdfjs": "~1.9.x"
+  },
+  "resolutions": {
+    "pdfjs": "~1.9.x"
+  }
+}
