@@ -70,7 +70,6 @@ appstore:
 	templates \
 	css \
 	img \
-	vendor \
 	js \
 	$(appstore_package_name)
 

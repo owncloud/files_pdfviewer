@@ -7,6 +7,25 @@ This application integrates the [PDF.js](https://mozilla.github.io/pdf.js/) libr
 [![Code Coverage](https://scrutinizer-ci.com/g/owncloud/files_pdfviewer/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/owncloud/files_pdfviewer/?branch=master)
 [![Build Status](https://travis-ci.org/owncloud/files_pdfviewer.svg)](https://travis-ci.org/owncloud/files_pdfviewer)
 
+
+Instructions to update pdfjs
+===========
+1. Prerequisites
+- Install npm
+- Install bower
+- Install gulp
+
+2. Update pdfjs version in bower.json
+
+3. Run `make rebuild-pdfjs`
+
+4. New version of the library will be in `js/vendor/pdfjs`
+
+5. Check if `templates/viewer.php` needs to be updated to match `js/vendor/pdfjs/web/viewer.html`
+
+6. Test the app ;)
+
+
 Maintainers
 ===========
 - [Lukas Reschke](https://github.com/LukasReschke)
