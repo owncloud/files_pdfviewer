@@ -37,6 +37,14 @@
 			// replace the controls with our own
 			$('#app-content #controls').removeClass('hidden');
 		},
+		
+		_close: function() {
+			if(!$('html').hasClass('ie8')) {
+				history.back();
+			} else {
+				self.hide();
+			}
+		},
 
 		/**
 		 * @param downloadUrl
@@ -45,6 +53,7 @@
 		show: function(downloadUrl, isFileList) {
 			var self = this;
 			var $iframe;
+			var isVisible = true;
 			var viewer = OC.generateUrl('/apps/files_pdfviewer/?file={file}', {file: downloadUrl});
 			$iframe = $('<iframe id="pdframe" style="width:100%;height:100%;display:block;position:absolute;top:0;z-index:10;" src="'+viewer+'" sandbox="allow-scripts allow-same-origin allow-popups allow-modals allow-top-navigation" />');
 
@@ -74,18 +83,17 @@
 			$('#pdframe').load(function(){
 				var iframe = $('#pdframe').contents();
 				if ($('#fileList').length) {
-					iframe.find('#secondaryToolbarClose').click(function() {
-						if(!$('html').hasClass('ie8')) {
-							history.back();
-						} else {
-							self.hide();
-						}
-					});
+					iframe.find('#secondaryToolbarClose').click(self._close);
 				} else {
 					iframe.find("#secondaryToolbarClose").addClass('hidden');
 				}
 			});
-
+			$(document).keyup(function(e) {
+				if (isVisible && e.keyCode == 27) {
+					isVisible = false;
+					self._close();
+				}
+			});
 			if(!$('html').hasClass('ie8')) {
 				history.pushState({}, '', '#pdfviewer');
 			}
