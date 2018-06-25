@@ -11,9 +11,11 @@ function redirectIfNotDisplayedInFrame () {
 	window.location.href = '/';
 }
 redirectIfNotDisplayedInFrame();
-
+try {
+	PDFJS.locale = parent.OC.getLocale();
+} catch (e) {}
 function deferredViewerConfig() {
-	PDFJS.openExternalLinksInNewWindow = true;
+	PDFJS.externalLinkTarget = PDFJS.LinkTarget.BLANK;
 	PDFJS.isEvalSupported = false;
 	PDFJS.workerSrc = document.getElementsByTagName('head')[0].getAttribute('data-workersrc');
 }
