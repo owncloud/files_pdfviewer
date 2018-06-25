@@ -31,6 +31,17 @@ endif
 clean:
 	rm -rf ./build/artifacts
 
+.PHONY: rebuild-pdfjs
+rebuild-pdfjs:
+	rm -rf js/vendor/pdfjs
+	rm -rf vendor/pdfjs
+	bower install
+	cd vendor/pdfjs && npm install
+	cd vendor/pdfjs && gulp generic
+	mkdir -p js/vendor
+	mv vendor/pdfjs/build/generic js/vendor/pdfjs
+
+
 # Builds the source and appstore package
 .PHONY: dist
 dist:
@@ -59,7 +70,6 @@ appstore:
 	templates \
 	css \
 	img \
-	vendor \
 	js \
 	$(appstore_package_name)
 

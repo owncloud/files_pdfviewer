@@ -12,6 +12,15 @@ function redirectIfNotDisplayedInFrame () {
 }
 redirectIfNotDisplayedInFrame();
 
-PDFJS.openExternalLinksInNewWindow = true;
-PDFJS.isEvalSupported = false;
-PDFJS.workerSrc = document.getElementsByTagName('head')[0].getAttribute('data-workersrc');
+function deferredViewerConfig() {
+	PDFJS.openExternalLinksInNewWindow = true;
+	PDFJS.isEvalSupported = false;
+	PDFJS.workerSrc = document.getElementsByTagName('head')[0].getAttribute('data-workersrc');
+}
+
+// Wait until viewer is ready and patch it on the fly
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
+	deferredViewerConfig();
+} else {
+	document.addEventListener('DOMContentLoaded', deferredViewerConfig, true);
+}
