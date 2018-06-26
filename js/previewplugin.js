@@ -33,7 +33,6 @@
 			}
 
 			FileList.setViewerMode(false);
-
 			// replace the controls with our own
 			$('#app-content #controls').removeClass('hidden');
 		},
@@ -45,6 +44,7 @@
 		show: function(downloadUrl, isFileList) {
 			var self = this;
 			var $iframe;
+			var isPdfVisible;
 			var viewer = OC.generateUrl('/apps/files_pdfviewer/?file={file}', {file: downloadUrl});
 			$iframe = $('<iframe id="pdframe" style="width:100%;height:100%;display:block;position:absolute;top:0;z-index:10;" src="'+viewer+'" sandbox="allow-scripts allow-same-origin allow-popups allow-modals allow-top-navigation" />');
 
@@ -74,37 +74,27 @@
 			$('#pdframe').load(function(){
 				var iframe = $('#pdframe').contents();
 				if ($('#fileList').length) {
-					iframe.find('#secondaryToolbarClose').click(function() {
-						if(!$('html').hasClass('ie8')) {
-							history.back();
-						} else {
-							self.hide();
-						}
-					});
+					isPdfVisible = true;
+					history.pushState({}, '', '#pdfviewer');
+					iframe.find('#secondaryToolbarClose').click(function(){history.back()});
 				} else {
 					iframe.find("#secondaryToolbarClose").addClass('hidden');
 				}
 			});
 
-			if(!$('html').hasClass('ie8')) {
-				history.pushState({}, '', '#pdfviewer');
-			}
 
-			if(!$('html').hasClass('ie8')) {
-				if (document.readyState !== 'complete') {
-					$(window).load(function() {
-						setTimeout(function() {
-							$(window).one('popstate', function (e) {
-								self.hide();
-							});
-						}, 0);
-					});
-				} else {
-					$(window).one('popstate', function (e) {
-						self.hide();
-					});
-	 			}
-			}
+			$(document).keyup(function(e) {
+				if (isPdfVisible && e.keyCode == 27) {
+					isPdfVisible = false;
+					history.back();
+				}
+			});
+
+			setTimeout(function () {
+				$(window).one('popstate', function (e) {
+					self.hide();
+				});
+			}, 0);
 		},
 
 		/**
@@ -139,20 +129,14 @@
 
 })(OCA);
 
-// Doesn't work with IE below 9
-if(!$.browser.msie || ($.browser.msie && $.browser.version >= 9)){
-	OC.Plugins.register('OCA.Files.FileList', OCA.FilesPdfViewer.PreviewPlugin);
-}
+OC.Plugins.register('OCA.Files.FileList', OCA.FilesPdfViewer.PreviewPlugin);
 
 // FIXME: Hack for single public file view since it is not attached to the fileslist
 $(document).ready(function(){
-	// Doesn't work with IE below 9
-	if(!$.browser.msie || ($.browser.msie && $.browser.version >= 9)){
-		if ($('#isPublic').val() && $('#mimetype').val() === 'application/pdf') {
-			var sharingToken = $('#sharingToken').val();
-			var downloadUrl = OC.generateUrl('/s/{token}/download', {token: sharingToken});
-			var viewer = OCA.FilesPdfViewer.PreviewPlugin;
-			viewer.show(downloadUrl, false);
-		}
+	if ($('#isPublic').val() && $('#mimetype').val() === 'application/pdf') {
+		var sharingToken = $('#sharingToken').val();
+		var downloadUrl = OC.generateUrl('/s/{token}/download', {token: sharingToken});
+		var viewer = OCA.FilesPdfViewer.PreviewPlugin;
+		viewer.show(downloadUrl, false);
 	}
 });
