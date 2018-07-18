@@ -2,6 +2,7 @@
 <info>
     <id>files_pdfviewer</id>
     <name>PDF Viewer</name>
+    <summary>Online viewer for PDF files</summary>
     <description>
 This application integrates the PDF.js library into ownCloud. Using this application users can view their PDF files in their browser without the need to download the file.
 
