@@ -16,7 +16,7 @@
         about the PDF.js project at https://mozilla.github.io/pdf.js/
     </description>
     <licence>AGPL</licence>
-    <author>Thomas Müller, Lukas Reschke</author>
+    <author>Thomas Müller, Lukas Reschke, Viktar Dubiniuk</author>
     <version>0.9.0</version>
     <dependencies>
         <owncloud min-version="10.0" max-version="11.0" />
