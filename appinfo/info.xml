@@ -2,31 +2,21 @@
 <info>
     <id>files_pdfviewer</id>
     <name>PDF Viewer</name>
+    <summary>Online viewer for PDF files</summary>
     <description>
-        This application integrates the PDF.js library into ownCloud. Using this
-        application users can view their PDF files online without the need to
-        download the file.
+This application integrates the PDF.js library into ownCloud. Using this application users can view their PDF files in their browser without the need to download the file.
 
-        When this application is enabled publicly shared PDF documents will also
-        get shown in the PDF Viewer instead of only showing a single static
-        snapshot of the document. The PDF viewer requires a modern browser and
-        will not work with Microsoft® Internet Explorer® versions below 9.
+When this application is enabled publicly shared PDF documents will also get shown in the PDF Viewer instead of only showing a single static snapshot of the document. The PDF viewer requires a modern browser and will not work with Microsoft® Internet Explorer® versions below 9.
 
-        PDF.js is a JavaScript library developed by Mozilla, you can learn more
-        about the PDF.js project at https://mozilla.github.io/pdf.js/
+PDF.js is a JavaScript library developed by Mozilla, you can learn more about the PDF.js project at https://mozilla.github.io/pdf.js/
     </description>
     <licence>AGPL</licence>
-    <author>Thomas Müller, Lukas Reschke</author>
-    <version>0.8.2</version>
+    <author>Thomas Müller, Lukas Reschke, Viktar Dubiniuk</author>
+    <version>0.9.0</version>
     <dependencies>
-        <owncloud min-version="10.0" max-version="11.0" />
+        <owncloud min-version="10.0" max-version="10.1" />
     </dependencies>
     <default_enable/>
-    <documentation>
-    	<user>https://doc.owncloud.org/missing</user>
-    	<admin>https://doc.owncloud.org/missing</admin>
-    	<developer>https://doc.owncloud.org/missing</developer>
-    </documentation>
     <website>https://github.com/owncloud/files_pdfviewer</website>
     <bugs>https://github.com/owncloud/files_pdfviewer/issues</bugs>
     <category>productivity</category>
