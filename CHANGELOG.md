@@ -4,7 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+## [0.10.0]
+
+### Added
+
+- add PHP7.2 to stable10 branch - [#159](https://github.com/owncloud/files_pdfviewer/issues/159)
+
+### Changed
+
+- set max version to 10 because core platform switches to Semver
+
 
 ## [0.9.0] - 2018-07-19
 
@@ -26,6 +35,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 ### Changed
 - First marketplace release
 
-[Unreleased]: https://github.com/owncloud/files_pdfviewer/compare/v0.9.0..HEAD
+[0.10.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.9.0..v0.10.0
 [0.9.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.8.2..v0.9.0
 
