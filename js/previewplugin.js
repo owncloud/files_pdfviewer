@@ -8,7 +8,7 @@
  *
  */
 
-(function(OCA) {
+(function (OCA) {
 
 	OCA.FilesPdfViewer = OCA.FilesPdfViewer || {};
 
@@ -20,13 +20,13 @@
 		/**
 		 * @param fileList
 		 */
-		attach: function(fileList) {
+		attach: function (fileList) {
 			this._extendFileActions(fileList.fileActions);
 		},
 
-		hide: function() {
+		hide: function () {
 			$('#pdframe').remove();
-			if ($('#isPublic').val() && $('#filesApp').val()){
+			if ($('#isPublic').val() && $('#filesApp').val()) {
 				$('#controls').removeClass('hidden');
 				$('#content').removeClass('full-height');
 				$('footer').removeClass('hidden');
@@ -41,21 +41,27 @@
 		 * @param downloadUrl
 		 * @param isFileList
 		 */
-		show: function(downloadUrl, isFileList) {
+		show: function (downloadUrl, isFileList) {
 			var self = this;
 			var $iframe;
 			var isPdfVisible;
-			var viewer = OC.generateUrl('/apps/files_pdfviewer/?file={file}', {file: downloadUrl});
-			$iframe = $('<iframe id="pdframe" style="width:100%;height:100%;display:block;position:absolute;top:0;z-index:10;" src="'+viewer+'" sandbox="allow-scripts allow-same-origin allow-popups allow-modals allow-top-navigation" />');
+			var viewer = OC.generateUrl('/apps/files_pdfviewer/?file={file}', {
+				file: downloadUrl
+			});
+			$iframe = $('<iframe id="pdframe" style="width:100%;height:100%;display:block;position:absolute;top:0;z-index:10;" src="' + viewer + '" sandbox="allow-scripts allow-same-origin allow-popups allow-modals allow-top-navigation" />');
 
-			if(isFileList === true) {
+			if (isFileList === true) {
 				FileList.setViewerMode(true);
 			}
 
 			if ($('#isPublic').val()) {
 				// force the preview to adjust its height
-				$('#preview').append($iframe).css({height: '100%'});
-				$('body').css({height: '100%'});
+				$('#preview').append($iframe).css({
+					height: '100%'
+				});
+				$('body').css({
+					height: '100%'
+				});
 				$('#content').addClass('full-height');
 				$('footer').addClass('hidden');
 				$('#imgframe').addClass('hidden');
@@ -66,24 +72,26 @@
 				$('#app-content').append($iframe);
 			}
 
-			$("#pageWidthOption").attr("selected","selected");
+			$("#pageWidthOption").attr("selected", "selected");
 			// replace the controls with our own
 			$('#app-content #controls').addClass('hidden');
 
 			// if a filelist is present, the PDF viewer can be closed to go back there
-			$('#pdframe').load(function(){
+			$('#pdframe').on("load", function () {
 				var iframe = $('#pdframe').contents();
 				if ($('#fileList').length) {
 					isPdfVisible = true;
 					history.pushState({}, '', '#pdfviewer');
-					iframe.find('#secondaryToolbarClose').click(function(){history.back()});
+					iframe.find('#secondaryToolbarClose').click(function () {
+						history.back()
+					});
 				} else {
 					iframe.find("#secondaryToolbarClose").addClass('hidden');
 				}
 			});
 
 
-			$(document).keyup(function(e) {
+			$(document).keyup(function (e) {
 				if (isPdfVisible && e.keyCode == 27) {
 					isPdfVisible = false;
 					history.back();
@@ -101,16 +109,16 @@
 		 * @param fileActions
 		 * @private
 		 */
-		_extendFileActions: function(fileActions) {
+		_extendFileActions: function (fileActions) {
 			var self = this;
 			fileActions.registerAction({
 				name: 'view',
 				displayName: 'Favorite',
 				mime: 'application/pdf',
 				permissions: OC.PERMISSION_READ,
-				actionHandler: function(fileName, context) {
+				actionHandler: function (fileName, context) {
 					var downloadUrl = '';
-					if($('#isPublic').val()) {
+					if ($('#isPublic').val()) {
 						var sharingToken = $('#sharingToken').val();
 						downloadUrl = OC.generateUrl('/s/{token}/download?files={files}&path={path}', {
 							token: sharingToken,
@@ -132,10 +140,12 @@
 OC.Plugins.register('OCA.Files.FileList', OCA.FilesPdfViewer.PreviewPlugin);
 
 // FIXME: Hack for single public file view since it is not attached to the fileslist
-$(document).ready(function(){
+$(document).ready(function () {
 	if ($('#isPublic').val() && $('#mimetype').val() === 'application/pdf') {
 		var sharingToken = $('#sharingToken').val();
-		var downloadUrl = OC.generateUrl('/s/{token}/download', {token: sharingToken});
+		var downloadUrl = OC.generateUrl('/s/{token}/download', {
+			token: sharingToken
+		});
 		var viewer = OCA.FilesPdfViewer.PreviewPlugin;
 		viewer.show(downloadUrl, false);
 	}
