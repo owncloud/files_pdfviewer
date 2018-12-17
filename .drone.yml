@@ -63,6 +63,15 @@ pipeline:
       matrix:
         TEST_SUITE: owncloud-coding-standard
 
+  codecheck:
+    image: owncloudci/php:${PHP_VERSION}
+    pull: true
+    commands:
+      - make test-php-codecheck
+    when:
+      matrix:
+        TEST_SUITE: codecheck
+
   phpunit-tests:
     image: owncloudci/php:${PHP_VERSION}
     pull: true
@@ -144,6 +153,15 @@ matrix:
 
     - PHP_VERSION: 5.6
       TEST_SUITE: owncloud-coding-standard
+
+    # app code check
+    - PHP_VERSION: 5.6
+      OC_VERSION: daily-stable10-qa
+      TEST_SUITE: codecheck
+      DB_TYPE: mysql
+      DB_NAME: owncloud
+      NEED_CORE: true
+      NEED_INSTALL_APP: true
 
     # Unit Tests
     - PHP_VERSION: 7.1
