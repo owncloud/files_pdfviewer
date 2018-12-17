@@ -26,7 +26,7 @@ class DisplayControllerTest extends TestCase {
 	/** @var DisplayController */
 	private $controller;
 
-	public function setUp(){
+	public function setUp() {
 		$this->appName = 'files_pdfviewer';
 
 		$this->request = $this->getMockBuilder(
@@ -60,5 +60,4 @@ class DisplayControllerTest extends TestCase {
 
 		$this->assertEquals($expectedResponse, $this->controller->showPdfViewer());
 	}
-
 }
