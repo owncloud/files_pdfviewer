@@ -5,7 +5,7 @@ This application integrates the [PDF.js](https://mozilla.github.io/pdf.js/) libr
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/owncloud/files_pdfviewer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/owncloud/files_pdfviewer/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/owncloud/files_pdfviewer/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/owncloud/files_pdfviewer/?branch=master)
-[![Build Status](https://travis-ci.org/owncloud/files_pdfviewer.svg)](https://travis-ci.org/owncloud/files_pdfviewer)
+[![Build Status](https://drone.owncloud.com/api/badges/owncloud/files_pdfviewer/status.svg?branch=master)](https://drone.owncloud.com/owncloud/files_pdfviewer)
 
 
 Instructions to update pdfjs

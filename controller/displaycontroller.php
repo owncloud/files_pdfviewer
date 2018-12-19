@@ -54,5 +54,4 @@ class DisplayController extends Controller {
 
 		return $response;
 	}
-
 }
