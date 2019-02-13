@@ -46,8 +46,13 @@ help:
 
 # Removes the appstore build
 .PHONY: clean
-clean:
+clean: clean-deps
 	rm -rf ./build/artifacts
+
+.PHONY: clean-deps
+clean-deps:
+	rm -Rf vendor
+	rm -Rf vendor-bin/**/vendor vendor-bin/**/composer.lock
 
 .PHONY: rebuild-pdfjs
 rebuild-pdfjs:
