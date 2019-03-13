@@ -14,7 +14,7 @@ PDF.js is a JavaScript library developed by Mozilla, you can learn more about th
     <author>Thomas Müller, Lukas Reschke, Viktar Dubiniuk</author>
     <version>0.10.0</version>
     <dependencies>
-        <owncloud min-version="10" max-version="10" />
+        <owncloud min-version="10.2" max-version="10" />
     </dependencies>
     <default_enable/>
     <website>https://github.com/owncloud/files_pdfviewer</website>
