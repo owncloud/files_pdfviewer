@@ -4,11 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [0.11.0]
+
+### Changed
+
+- Update pdfjs to 1.10 - [#177](https://github.com/owncloud/files_pdfviewer/pull/177)
+
 ## [0.10.0]
 
 ### Added
 
-- add PHP7.2 to stable10 branch - [#159](https://github.com/owncloud/files_pdfviewer/issues/159)
+- add PHP 7.2 to stable10 branch - [#159](https://github.com/owncloud/files_pdfviewer/issues/159)
 
 ### Changed
 
@@ -35,6 +41,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 ### Changed
 - First marketplace release
 
+[0.11.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.10.0..v0.11.0
 [0.10.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.9.0..v0.10.0
 [0.9.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.8.2..v0.9.0
 
