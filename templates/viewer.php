@@ -1,4 +1,4 @@
-﻿<?php
+<?php
   /** @var array $_ */
   /** @var OCP\IURLGenerator $urlGenerator */
   $urlGenerator = $_['urlGenerator'];
