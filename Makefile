@@ -81,6 +81,8 @@ appstore:
 	css \
 	img \
 	js \
+	README.md \
+	CHANGELOG.md \
 	$(appstore_package_name)
 
 ifdef CAN_SIGN
