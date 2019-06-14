@@ -16,9 +16,9 @@
     "tests"
   ],
   "dependencies": {
-    "pdfjs": "~1.10.x"
+    "pdfjs": "~2.1.x"
   },
   "resolutions": {
-    "pdfjs": "~1.10.x"
+    "pdfjs": "~2.1.x"
   }
 }
