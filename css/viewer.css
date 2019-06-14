@@ -1,10 +1,6 @@
 .toolbarButton#secondaryToolbarClose::before {
   display: block;
-  content: ' ';
-  background-image: url(../img/toolbarButton-secondaryToolbarClose.svg);
-  background-size: 16px 16px;
-  height: 16px;
-  width: 16px;
+  content: url(../img/toolbarButton-secondaryToolbarClose.svg);
 }
 
 @media screen and (min-resolution: 2dppx) {
