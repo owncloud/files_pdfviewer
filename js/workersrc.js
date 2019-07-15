@@ -11,18 +11,15 @@ function redirectIfNotDisplayedInFrame () {
 	window.location.href = '/';
 }
 redirectIfNotDisplayedInFrame();
-try {
-	PDFJS.locale = parent.OC.getLocale();
-} catch (e) {}
+
 function deferredViewerConfig() {
-	PDFJS.externalLinkTarget = PDFJS.LinkTarget.BLANK;
-	PDFJS.isEvalSupported = false;
-	PDFJS.workerSrc = document.getElementsByTagName('head')[0].getAttribute('data-workersrc');
+	try {
+		PDFViewerApplicationOptions.set('workerSrc', document.getElementsByTagName('head')[0].getAttribute('data-workersrc'));
+		PDFViewerApplicationOptions.set('locale', parent.OC.getLocale());
+	} catch (e) {}
+	pdfjsLib.externalLinkTarget = pdfjsLib.LinkTarget.BLANK;
+	pdfjsLib.isEvalSupported = false;
 }
 
 // Wait until viewer is ready and patch it on the fly
-if (document.readyState === 'interactive' || document.readyState === 'complete') {
-	deferredViewerConfig();
-} else {
-	document.addEventListener('DOMContentLoaded', deferredViewerConfig, true);
-}
+document.addEventListener('webviewerloaded', deferredViewerConfig, true);
