@@ -16,6 +16,7 @@ function deferredViewerConfig() {
 	try {
 		PDFViewerApplicationOptions.set('workerSrc', document.getElementsByTagName('head')[0].getAttribute('data-workersrc'));
 		PDFViewerApplicationOptions.set('locale', parent.OC.getLocale());
+		PDFViewerApplicationOptions.set('disableCreateObjectURL', true);
 	} catch (e) {}
 	pdfjsLib.externalLinkTarget = pdfjsLib.LinkTarget.BLANK;
 	pdfjsLib.isEvalSupported = false;
