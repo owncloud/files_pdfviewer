@@ -3,7 +3,7 @@
  **/
 function redirectIfNotDisplayedInFrame () {
 	try {
-		if (window.frameElement) {
+		if (window.frameElement || location.href.indexOf('?file=blob') !== false) {
 			return;
 		}
 	} catch (e) {}
