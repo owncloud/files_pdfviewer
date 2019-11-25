@@ -55,6 +55,7 @@ class DisplayControllerTest extends TestCase {
 		$policy->addAllowedChildSrcDomain('\'self\'');
 		$policy->addAllowedFontDomain('data:');
 		$policy->addAllowedImageDomain('*');
+		$policy->addAllowedConnectDomain('blob:');
 		$policy->allowEvalScript(false);
 		$expectedResponse->setContentSecurityPolicy($policy);
 
