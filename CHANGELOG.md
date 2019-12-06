@@ -4,7 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+## [0.11.1] - 2019-12-06
+
+### Changed
+
+- Drop PHP 7.0 - [#198](https://github.com/owncloud/files_pdfviewer/issues/198)
+- Allow opening pdf attachements - [#196](https://github.com/owncloud/files_pdfviewer/issues/196)
 
 ## [0.11.0] - 2019-04-12
 
@@ -43,7 +48,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 ### Changed
 - First marketplace release
 
-[Unreleased]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.0..master
+[Unreleased]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.1..master
+[0.11.1]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.0..v0.11.1
 [0.11.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.10.0..v0.11.0
 [0.10.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.9.0..v0.10.0
 [0.9.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.8.2..v0.9.0
