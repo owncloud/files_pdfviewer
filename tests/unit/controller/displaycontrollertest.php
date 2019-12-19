@@ -26,7 +26,7 @@ class DisplayControllerTest extends TestCase {
 	/** @var DisplayController */
 	private $controller;
 
-	public function setUp() {
+	public function setUp(): void {
 		$this->appName = 'files_pdfviewer';
 
 		$this->request = $this->getMockBuilder(
