@@ -11,6 +11,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - Drop PHP 7.0 - [#198](https://github.com/owncloud/files_pdfviewer/issues/198)
 - Allow opening pdf attachements - [#196](https://github.com/owncloud/files_pdfviewer/issues/196)
 
+### Fixed
+
+- Fix close button for attachments - [#205](https://github.com/owncloud/files_pdfviewer/issues/205)
+
 ## [0.11.0] - 2019-04-12
 
 ### Changed
