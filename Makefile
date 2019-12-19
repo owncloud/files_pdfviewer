@@ -76,7 +76,7 @@ appstore:
 	mkdir -p $(appstore_package_name)
 	cp --parents -r \
 	appinfo \
-	controller \
+	lib \
 	templates \
 	css \
 	img \
