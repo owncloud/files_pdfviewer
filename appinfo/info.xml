@@ -12,7 +12,7 @@ PDF.js is a JavaScript library developed by Mozilla, you can learn more about th
     </description>
     <licence>AGPL</licence>
     <author>Thomas Müller, Lukas Reschke, Viktar Dubiniuk</author>
-    <version>0.11.0</version>
+    <version>0.11.1</version>
     <dependencies>
         <owncloud min-version="10.2" max-version="10" />
     </dependencies>

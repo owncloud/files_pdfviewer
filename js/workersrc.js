@@ -3,7 +3,7 @@
  **/
 function redirectIfNotDisplayedInFrame () {
 	try {
-		if (window.frameElement || location.href.indexOf('?file=blob') !== false) {
+		if (window.frameElement || location.href.indexOf('?file=blob') !== -1) {
 			return;
 		}
 	} catch (e) {}
@@ -13,6 +13,14 @@ function redirectIfNotDisplayedInFrame () {
 redirectIfNotDisplayedInFrame();
 
 function deferredViewerConfig() {
+	if (location.href.indexOf('?file=blob') !== -1) {
+		document.getElementById('secondaryToolbarClose').addEventListener(
+			'click',
+			function() {
+				window.close();
+			}
+		);
+	}
 	try {
 		PDFViewerApplicationOptions.set('workerSrc', document.getElementsByTagName('head')[0].getAttribute('data-workersrc'));
 		PDFViewerApplicationOptions.set('locale', parent.OC.getLocale());
