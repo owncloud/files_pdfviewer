@@ -13,7 +13,7 @@ config = {
 
 	'phpstan': True,
 
-	'phan': False,
+	'phan': True,
 
 	'javascript': False,
 
