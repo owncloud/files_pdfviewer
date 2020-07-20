@@ -24,6 +24,7 @@ function deferredViewerConfig() {
 	try {
 		PDFViewerApplicationOptions.set('workerSrc', document.getElementsByTagName('head')[0].getAttribute('data-workersrc'));
 		PDFViewerApplicationOptions.set('locale', parent.OC.getLocale());
+		PDFViewerApplicationOptions.set('cMapUrl', document.getElementsByTagName('head')[0].getAttribute('data-cmapurl'));
 	} catch (e) {}
 	pdfjsLib.externalLinkTarget = pdfjsLib.LinkTarget.BLANK;
 	pdfjsLib.isEvalSupported = false;
