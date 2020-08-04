@@ -4,9 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+## [0.11.2] - 2020-08-04
 
-- 
+### Fixed
+
+- Fix load of character maps to allow proper rendering of some fonts - [#217](https://github.com/owncloud/files_pdfviewer/issues/217)
+
+### Changed
+
+- Update libraries
 
 ## [0.11.1] - 2019-12-06
 
@@ -56,9 +62,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 ### Changed
 - First marketplace release
 
-[Unreleased]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.1..master
+[0.11.2]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.1..v0.11.2
 [0.11.1]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.0..v0.11.1
 [0.11.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.10.0..v0.11.0
 [0.10.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.9.0..v0.10.0
 [0.9.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.8.2..v0.9.0
-
