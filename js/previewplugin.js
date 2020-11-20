@@ -112,9 +112,10 @@
 		_extendFileActions: function (fileActions) {
 			var self = this;
 			fileActions.registerAction({
-				name: 'view',
-				displayName: 'Favorite',
+				name: 'FilesPdfViewer',
+				displayName: 'Open in PDF Viewer',
 				mime: 'application/pdf',
+				iconClass: 'icon-toggle',
 				permissions: OC.PERMISSION_READ,
 				actionHandler: function (fileName, context) {
 					var downloadUrl = '';
@@ -131,7 +132,7 @@
 					self.show(downloadUrl, true);
 				}
 			});
-			fileActions.setDefault('application/pdf', 'view');
+			fileActions.setDefault('application/pdf', 'FilesPdfViewer');
 		}
 	};
 
