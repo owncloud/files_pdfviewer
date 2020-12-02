@@ -25,10 +25,11 @@ function deferredViewerConfig() {
 		PDFViewerApplicationOptions.set('workerSrc', document.getElementsByTagName('head')[0].getAttribute('data-workersrc'));
 		PDFViewerApplicationOptions.set('locale', parent.OC.getLocale());
 		PDFViewerApplicationOptions.set('cMapUrl', document.getElementsByTagName('head')[0].getAttribute('data-cmapurl'));
+		PDFViewerApplicationOptions.set('printResolution', 300);
 	} catch (e) {}
 	pdfjsLib.externalLinkTarget = pdfjsLib.LinkTarget.BLANK;
 	pdfjsLib.isEvalSupported = false;
 }
 
 // Wait until viewer is ready and patch it on the fly
-document.addEventListener('webviewerloaded', deferredViewerConfig, true);
+parent.document.addEventListener('webviewerloaded', deferredViewerConfig, true);
