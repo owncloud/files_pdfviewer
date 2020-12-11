@@ -113,7 +113,7 @@
 			var self = this;
 			fileActions.registerAction({
 				name: 'FilesPdfViewer',
-				displayName: 'Open in PDF Viewer',
+				displayName: t('files_pdfviewer', 'Open in PDF Viewer'),
 				mime: 'application/pdf',
 				iconClass: 'icon-toggle',
 				permissions: OC.PERMISSION_READ,
