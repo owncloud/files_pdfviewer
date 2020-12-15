@@ -10,8 +10,10 @@
 
 namespace OCA\Files_PdfViewer\Controller;
 
+use OC\Files\Filesystem;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\ContentSecurityPolicy;
+use OCP\AppFramework\Http\JSONResponse;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IRequest;
 use OCP\IURLGenerator;
@@ -41,7 +43,7 @@ class DisplayController extends Controller {
 	 */
 	public function showPdfViewer() {
 		$params = [
-			'urlGenerator' => $this->urlGenerator
+			'urlGenerator' => $this->urlGenerator,
 		];
 		$response = new TemplateResponse($this->appName, 'viewer', $params, 'blank');
 
@@ -54,5 +56,35 @@ class DisplayController extends Controller {
 		$response->setContentSecurityPolicy($policy);
 
 		return $response;
+	}
+
+	/**
+	 * @NoAdminRequired
+	 * @return JSONResponse
+	 */
+
+	public function canDownload() {
+		$canDownload = true;
+		$storage = $this->getStorage($this->request->getParam('path'));
+
+		if (!$storage->instanceOfStorage('OCA\Files_Sharing\SharedStorage')) {
+			return new JSONResponse(['canDownload' => $canDownload]);
+		}
+
+		/** @var \OCA\Files_Sharing\SharedStorage $storage */
+		'@phan-var \OCA\Files_Sharing\SharedStorage $storage';  /* @phpstan-ignore-line */
+		$share = $storage->getShare();
+		$downloadPermission = $share->getAttributes()->getAttribute('permissions', 'download');
+
+		if ($downloadPermission !== null && !$downloadPermission) {
+			$canDownload = false;
+		}
+
+		return new JSONResponse(['canDownload' => $canDownload]);
+	}
+
+	protected function getStorage($path) {
+		$fileInfo =  Filesystem::getFileInfo($path);
+		return $fileInfo->getStorage();
 	}
 }

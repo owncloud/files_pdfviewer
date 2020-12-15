@@ -12,6 +12,7 @@ namespace OCA\Files_PdfViewer\Controller;
 
 use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\AppFramework\Http\TemplateResponse;
+use OCP\AppFramework\Http\JSONResponse;
 use OCP\IRequest;
 use OCP\IURLGenerator;
 use Test\TestCase;
@@ -37,11 +38,14 @@ class DisplayControllerTest extends TestCase {
 			'\OCP\IUrlGenerator')
 			->disableOriginalConstructor()
 			->getMock();
-		$this->controller = new DisplayController(
-			$this->appName,
-			$this->request,
-			$this->urlGenerator
-		);
+
+		$this->controller = $this->getMockBuilder('\OCA\Files_PdfViewer\Controller\DisplayController')->setConstructorArgs(
+			[
+				$this->appName,
+				$this->request,
+				$this->urlGenerator
+			]
+		)->onlyMethods(['getStorage'])->getMock();
 
 		parent::setUp();
 	}
@@ -60,5 +64,14 @@ class DisplayControllerTest extends TestCase {
 		$expectedResponse->setContentSecurityPolicy($policy);
 
 		$this->assertEquals($expectedResponse, $this->controller->showPdfViewer());
+	}
+
+	public function testCanDownload() {
+		$this->request->expects($this->once())->method('getParam')->willReturn('test.txt');
+		$storage = $this->createMock('\OCP\Files\Storage');
+		$this->controller->expects($this->once())->method('getStorage')->willReturn($storage);
+
+		$expectedResponse = new JSONResponse(['canDownload' => true]);
+		$this->assertEquals($expectedResponse, $this->controller->canDownload());
 	}
 }

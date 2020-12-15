@@ -12,4 +12,5 @@ namespace OCA\Files_PdfViewer\AppInfo;
 
 return ['routes' => [
 	['name' => 'display#showPdfViewer', 'url' => '/', 'verb' => 'GET'],
+	['name' => 'display#canDownload', 'url' => '/candownload', 'verb' => 'GET'],
 ]];

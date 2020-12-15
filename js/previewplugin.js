@@ -7,7 +7,6 @@
  * See the COPYING-README file.
  *
  */
-
 (function (OCA) {
 
 	OCA.FilesPdfViewer = OCA.FilesPdfViewer || {};
@@ -38,10 +37,27 @@
 		},
 
 		/**
+		 * @param fileName
+		 * @param dir
+		 */
+		show: function (fileName, dir) {
+			var self = this;
+			var downloadUrl = this._getDownloadUrl(fileName, dir);
+
+			$.get(OC.generateUrl('apps/files_pdfviewer/candownload?path={path}', {path : dir+"/"+fileName})).then(function (response) {
+				if(!response.canDownload){
+					OC.Notification.show(t('files_pdfviewer', 'This shared file does not have download permission, please contact the owner of the file for granting permission or use a different viewer'), {timeout : 7, type: 'error'});
+				}else{
+					self.renderPdfViewer(downloadUrl, true);
+				}
+			});
+		},
+
+		/**
 		 * @param downloadUrl
 		 * @param isFileList
 		 */
-		show: function (downloadUrl, isFileList) {
+		renderPdfViewer: function(downloadUrl, isFileList){
 			var self = this;
 			var $iframe;
 			var isPdfVisible;
@@ -105,6 +121,29 @@
 			}, 0);
 		},
 
+
+		/**
+		 * @param fileName
+		 * @param dir
+		 * @return string
+		 * @private
+		 */
+		_getDownloadUrl: function(fileName, dir){
+			var downloadUrl
+			if ($('#isPublic').val()) {
+				var sharingToken = $('#sharingToken').val();
+				downloadUrl = OC.generateUrl('/s/{token}/download?files={files}&path={path}', {
+					token: sharingToken,
+					files: fileName,
+					path: dir
+				});
+			} else {
+				downloadUrl = Files.getDownloadUrl(fileName, dir);
+			}
+
+			return downloadUrl;
+		},
+
 		/**
 		 * @param fileActions
 		 * @private
@@ -118,18 +157,7 @@
 				iconClass: 'icon-toggle',
 				permissions: OC.PERMISSION_READ,
 				actionHandler: function (fileName, context) {
-					var downloadUrl = '';
-					if ($('#isPublic').val()) {
-						var sharingToken = $('#sharingToken').val();
-						downloadUrl = OC.generateUrl('/s/{token}/download?files={files}&path={path}', {
-							token: sharingToken,
-							files: fileName,
-							path: context.dir
-						});
-					} else {
-						downloadUrl = Files.getDownloadUrl(fileName, context.dir);
-					}
-					self.show(downloadUrl, true);
+					self.show(fileName, context.dir);
 				}
 			});
 			fileActions.setDefault('application/pdf', 'FilesPdfViewer');
@@ -148,6 +176,6 @@ $(document).ready(function () {
 			token: sharingToken
 		});
 		var viewer = OCA.FilesPdfViewer.PreviewPlugin;
-		viewer.show(downloadUrl, false);
+		viewer.renderPdfViewer(downloadUrl, false);
 	}
 });
