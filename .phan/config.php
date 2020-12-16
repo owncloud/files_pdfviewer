@@ -40,6 +40,7 @@ return [
 		'appinfo',
 		'lib',
 		'vendor',
+		'../../apps/files_sharing/lib',
 		'../../lib',
 		'../../core'
 	],
@@ -57,6 +58,7 @@ return [
 	//       and `exclude_analysis_directory_list` arrays.
 	'exclude_analysis_directory_list' => [
 		'vendor',
+		'../../apps/files_sharing/lib',
 		'../../lib',
 		'../../core'
 	],
