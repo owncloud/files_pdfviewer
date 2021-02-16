@@ -188,7 +188,7 @@ def jscodestyle():
 		'steps': [
 			{
 				'name': 'coding-standard-js',
-				'image': 'owncloudci/php:7.2',
+				'image': 'owncloudci/php:8.0',
 				'pull': 'always',
 				'commands': [
 					'make test-js-style'
@@ -493,13 +493,13 @@ def javascript(ctx):
 		},
 		'steps':
 			installCore('daily-master-qa', 'sqlite', False) +
-			installApp('7.2') +
-			setupServerAndApp('7.2', params['logLevel']) +
+			installApp('7.4') +
+			setupServerAndApp('7.4', params['logLevel']) +
 			params['extraSetup'] +
 		[
 			{
 				'name': 'js-tests',
-				'image': 'owncloudci/php:7.2',
+				'image': 'owncloudci/php:8.0',
 				'pull': 'always',
 				'environment': params['extraEnvironment'],
 				'commands': params['extraCommandsBeforeTestRun'] + [
@@ -1583,7 +1583,7 @@ def databaseServiceForFederation(db, suffix):
 		print('Not implemented federated database for ', dbName)
 		return []
 
-	return [{
+	service = {
 		'name': dbName + suffix,
 		'image': db,
 		'pull': 'always',
@@ -1593,7 +1593,10 @@ def databaseServiceForFederation(db, suffix):
 			'MYSQL_DATABASE': getDbDatabase(db) + suffix,
 			'MYSQL_ROOT_PASSWORD': getDbRootPassword()
 		}
-	}]
+	}
+	if (db == 'mysql:8.0'):
+		service['command'] = ['--default-authentication-plugin=mysql_native_password']
+	return [service]
 
 def buildTestConfig(params):
 	configs = []
