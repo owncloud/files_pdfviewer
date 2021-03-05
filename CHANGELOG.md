@@ -4,7 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+## [0.12.0] - 2021-03-05
+
+### Changed
+
+- Update pdfjs to 2.5  - [#228](https://github.com/owncloud/files_pdfviewer/issues/228)
+
+### Fixed
+
+- Show Notification if downloading pdf is forbidden - [#234](https://github.com/owncloud/files_pdfviewer/issues/234)
+- Enhance canDownload notification text - [#237](https://github.com/owncloud/files_pdfviewer/issues/237)
+
 
 ## [0.11.2] - 2020-08-04
 
@@ -65,7 +75,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - First marketplace release
 
 
-[Unreleased]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.2..master
+[Unreleased]: https://github.com/owncloud/files_pdfviewer/compare/v0.12.0..master
+[0.12.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.2..v0.12.0
 [0.11.2]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.1..v0.11.2
 [0.11.1]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.0..v0.11.1
 [0.11.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.10.0..v0.11.0
