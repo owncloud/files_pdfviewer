@@ -60,7 +60,7 @@ class DisplayControllerTest extends TestCase {
 		$policy->addAllowedFontDomain('data:');
 		$policy->addAllowedImageDomain('*');
 		$policy->addAllowedConnectDomain('blob:');
-		$policy->allowEvalScript(false);
+		$policy->allowEvalScript(true);
 		$expectedResponse->setContentSecurityPolicy($policy);
 
 		$this->assertEquals($expectedResponse, $this->controller->showPdfViewer());
