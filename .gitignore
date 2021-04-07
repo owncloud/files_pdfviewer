@@ -1,5 +1,10 @@
+/.idea
+/node_modules
 /build/
+/l10n/l10n.pl
 /l10n/.transifexrc
+/l10n/templates/files_pdfviewer.pot
+*.po
 .php_cs.cache
 
 # Composer
