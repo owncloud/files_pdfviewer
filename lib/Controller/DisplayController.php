@@ -52,7 +52,7 @@ class DisplayController extends Controller {
 		$policy->addAllowedFontDomain('data:');
 		$policy->addAllowedImageDomain('*');
 		$policy->addAllowedConnectDomain('blob:');
-		$policy->allowEvalScript(false);
+		$policy->allowEvalScript(true);
 		$response->setContentSecurityPolicy($policy);
 
 		return $response;
