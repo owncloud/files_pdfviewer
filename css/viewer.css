@@ -1,6 +1,6 @@
 .toolbarButton#secondaryToolbarClose::before {
-  display: block;
-  content: url(../img/toolbarButton-secondaryToolbarClose.svg);
+  content: url(../js/vendor/pdfjs/web/images/toolbarButton-zoomIn.png);
+  transform: rotate(45deg) scale(1.5);
 }
 
 @media screen and (min-resolution: 2dppx) {
@@ -16,12 +16,5 @@ html .doorHangerRight:after {
 }
 html .doorHangerRight:before {
   right: 53px!important;
-}
-
-#secondaryToolbarClose:before{
-  top: -4px;
-  left: 0;
-  width: 2px;
-  height: 2px;
 }
 
