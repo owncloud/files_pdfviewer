@@ -3,11 +3,10 @@
   transform: rotate(45deg) scale(1.5);
 }
 
-@media screen and (min-resolution: 2dppx) {
-  #secondaryToolbarClose::before {
-    background-size: 32px 32px !important;
-    height: 32px !important;
-    width: 32px !important;
+@media screen and (-webkit-min-device-pixel-ratio: 1.1), screen and (min-resolution: 1.1dppx) {
+  .toolbarButton#secondaryToolbarClose::before {
+    content: url(../js/vendor/pdfjs/web/images/toolbarButton-zoomIn@2x.png);
+    transform: rotate(45deg) scale(0.8);
   }
 }
 
