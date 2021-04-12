@@ -66,7 +66,8 @@ class DisplayController extends Controller {
 	}
 
 	/**
-	 * @NoAdminRequired
+	 * @PublicPage
+	 * @NoCSRFRequired
 	 * @return JSONResponse
 	 */
 
