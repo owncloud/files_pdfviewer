@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+## [0.12.1] - 2021-04-12
+
+### Fixed
+
+- Fix PDF files not viewable in shared folders via a public link [#266](https://github.com/owncloud/files_pdfviewer/issues/266)
 
 ## [0.12.0] - 2021-04-08
 
@@ -81,6 +85,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 
 [Unreleased]: https://github.com/owncloud/files_pdfviewer/compare/v0.12.0..master
+[0.12.1]: https://github.com/owncloud/files_pdfviewer/compare/v0.12.0..v0.12.1
 [0.12.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.2..v0.12.0
 [0.11.2]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.1..v0.11.2
 [0.11.1]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.0..v0.11.1
