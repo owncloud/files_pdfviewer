@@ -43,8 +43,19 @@
 		show: function (fileName, dir) {
 			var self = this;
 			var downloadUrl = this._getDownloadUrl(fileName, dir);
+			var sharingToken = $("#sharingToken").val();
+			var uri = 'apps/files_pdfviewer/candownload?path={path}';
 
-			$.get(OC.generateUrl('apps/files_pdfviewer/candownload?path={path}', {path : dir+"/"+fileName})).then(function (response) {
+			var params = {
+				path : dir+"/"+fileName,
+			};
+
+			if(sharingToken){
+				params.sharingToken = sharingToken;
+				uri += '&sharingToken={sharingToken}';
+			}
+
+			$.get(OC.generateUrl(uri, params)).then(function (response) {
 				if(!response.canDownload){
 					OC.Notification.show(t('files_pdfviewer', 'This shared file does not have download permission and is possibly proteced by secure view, please contact the owner of the file for granting permission or use a different viewer.'), {timeout : 7, type: 'error'});
 				}else{

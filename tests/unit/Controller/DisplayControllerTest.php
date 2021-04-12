@@ -15,6 +15,7 @@ use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\IRequest;
 use OCP\IURLGenerator;
+use OCP\Share\IManager;
 use Test\TestCase;
 
 class DisplayControllerTest extends TestCase {
@@ -26,6 +27,8 @@ class DisplayControllerTest extends TestCase {
 	private $urlGenerator;
 	/** @var DisplayController */
 	private $controller;
+	/** @var IManager */
+	private $shareManager;
 
 	public function setUp(): void {
 		$this->appName = 'files_pdfviewer';
@@ -39,11 +42,17 @@ class DisplayControllerTest extends TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
+		$this->shareManager = $this->getMockBuilder(
+			'\OCP\Share\IManager')
+			->disableOriginalConstructor()
+			->getMock();
+
 		$this->controller = $this->getMockBuilder('\OCA\Files_PdfViewer\Controller\DisplayController')->setConstructorArgs(
 			[
 				$this->appName,
 				$this->request,
-				$this->urlGenerator
+				$this->urlGenerator,
+				$this->shareManager
 			]
 		)->onlyMethods(['getStorage'])->getMock();
 
@@ -67,7 +76,7 @@ class DisplayControllerTest extends TestCase {
 	}
 
 	public function testCanDownload() {
-		$this->request->expects($this->once())->method('getParam')->willReturn('test.txt');
+		$this->request->expects($this->once())->method('getParams')->willReturn(['path' => 'test.txt']);
 		$storage = $this->createMock('\OCP\Files\Storage');
 		$this->controller->expects($this->once())->method('getStorage')->willReturn($storage);
 

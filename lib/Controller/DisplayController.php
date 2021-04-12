@@ -17,22 +17,29 @@ use OCP\AppFramework\Http\JSONResponse;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IRequest;
 use OCP\IURLGenerator;
+use OCP\Share\IManager;
 
 class DisplayController extends Controller {
 
 	/** @var IURLGenerator */
 	private $urlGenerator;
 
+	/** @var IManager */
+	private $shareManager;
+
 	/**
 	 * @param string $AppName
 	 * @param IRequest $request
 	 * @param IURLGenerator $urlGenerator
+	 * @param IManager $shareManager
 	 */
 	public function __construct($AppName,
 								IRequest $request,
-								IURLGenerator $urlGenerator) {
+								IURLGenerator $urlGenerator,
+								IManager $shareManager) {
 		parent::__construct($AppName, $request);
 		$this->urlGenerator = $urlGenerator;
+		$this->shareManager = $shareManager;
 	}
 
 	/**
@@ -65,7 +72,8 @@ class DisplayController extends Controller {
 
 	public function canDownload() {
 		$canDownload = true;
-		$storage = $this->getStorage($this->request->getParam('path'));
+
+		$storage = $this->getStorage($this->request->getParams());
 
 		if (!$storage->instanceOfStorage('OCA\Files_Sharing\SharedStorage')) {
 			return new JSONResponse(['canDownload' => $canDownload]);
@@ -83,8 +91,13 @@ class DisplayController extends Controller {
 		return new JSONResponse(['canDownload' => $canDownload]);
 	}
 
-	protected function getStorage($path) {
-		$fileInfo =  Filesystem::getFileInfo($path);
+	protected function getStorage($params) {
+		if (isset($params['sharingToken'])) {
+			$share = $this->shareManager->getShareByToken($params['sharingToken']);
+			return $share->getNode()->getStorage();
+		}
+
+		$fileInfo =  Filesystem::getFileInfo($params['path']);
 		return $fileInfo->getStorage();
 	}
 }
