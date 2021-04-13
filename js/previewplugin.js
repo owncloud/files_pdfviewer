@@ -57,7 +57,7 @@
 
 			$.get(OC.generateUrl(uri, params)).then(function (response) {
 				if(!response.canDownload){
-					OC.Notification.show(t('files_pdfviewer', 'This shared file does not have download permission and is possibly proteced by secure view, please contact the owner of the file for granting permission or use a different viewer.'), {timeout : 7, type: 'error'});
+					OC.Notification.show(t('files_pdfviewer', 'This shared file does not have download permission and is possibly protected by secure view, please contact the owner of the file for granting permission or use a different viewer.'), {timeout : 7, type: 'error'});
 				}else{
 					self.renderPdfViewer(downloadUrl, true);
 				}
