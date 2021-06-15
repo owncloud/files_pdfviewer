@@ -33,10 +33,12 @@ class DisplayController extends Controller {
 	 * @param IURLGenerator $urlGenerator
 	 * @param IManager $shareManager
 	 */
-	public function __construct($AppName,
-								IRequest $request,
-								IURLGenerator $urlGenerator,
-								IManager $shareManager) {
+	public function __construct(
+		$AppName,
+		IRequest $request,
+		IURLGenerator $urlGenerator,
+		IManager $shareManager
+	) {
 		parent::__construct($AppName, $request);
 		$this->urlGenerator = $urlGenerator;
 		$this->shareManager = $shareManager;

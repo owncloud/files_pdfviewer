@@ -34,16 +34,19 @@ class DisplayControllerTest extends TestCase {
 		$this->appName = 'files_pdfviewer';
 
 		$this->request = $this->getMockBuilder(
-			'\OCP\IRequest')
+			'\OCP\IRequest'
+		)
 			->disableOriginalConstructor()
 			->getMock();
 		$this->urlGenerator = $this->getMockBuilder(
-			'\OCP\IUrlGenerator')
+			'\OCP\IUrlGenerator'
+		)
 			->disableOriginalConstructor()
 			->getMock();
 
 		$this->shareManager = $this->getMockBuilder(
-			'\OCP\Share\IManager')
+			'\OCP\Share\IManager'
+		)
 			->disableOriginalConstructor()
 			->getMock();
 
