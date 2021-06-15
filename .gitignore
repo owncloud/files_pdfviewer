@@ -6,6 +6,7 @@
 /l10n/templates/files_pdfviewer.pot
 *.po
 .php_cs.cache
+.php-cs-fixer.cache
 
 # Composer
 vendor/
