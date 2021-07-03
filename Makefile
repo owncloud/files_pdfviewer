@@ -78,6 +78,7 @@ appstore:
 	appinfo \
 	lib \
 	templates \
+	l10n \
 	css \
 	img \
 	js \
