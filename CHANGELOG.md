@@ -4,7 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+## [0.12.2] - 2021-07-05
+
+### Fixed
+
+- Possible fix for "Missing L10N Folder in Marketplace Release" - [#280](https://github.com/owncloud/files_pdfviewer/issues/280)
+- Fix typo - [#271](https://github.com/owncloud/files_pdfviewer/issues/271)
+- Added PublicPage and NoCSRFRequired to allow canDownload for users without a session (public share) - [#269](https://github.com/owncloud/files_pdfviewer/issues/269)
 
 ## [0.12.1] - 2021-04-12
 
@@ -86,7 +92,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - First marketplace release
 
 
-[Unreleased]: https://github.com/owncloud/files_pdfviewer/compare/v0.12.0..master
+[0.12.2]: https://github.com/owncloud/files_pdfviewer/compare/v0.12.1..v0.12.2
 [0.12.1]: https://github.com/owncloud/files_pdfviewer/compare/v0.12.0..v0.12.1
 [0.12.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.2..v0.12.0
 [0.11.2]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.1..v0.11.2
