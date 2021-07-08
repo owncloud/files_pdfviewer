@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
-- Possible fix for "Missing L10N Folder in Marketplace Release" - [#280](https://github.com/owncloud/files_pdfviewer/issues/280)
+- provide translations in app release - [#280](https://github.com/owncloud/files_pdfviewer/issues/280)
 - Fix typo - [#271](https://github.com/owncloud/files_pdfviewer/issues/271)
 - Added PublicPage and NoCSRFRequired to allow canDownload for users without a session (public share) - [#269](https://github.com/owncloud/files_pdfviewer/issues/269)
 
