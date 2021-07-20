@@ -4,10 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
-## [0.12.2] - 2021-07-05
+## [0.12.2] - 2021-07-20
 
 ### Fixed
 
+- fix close l10n - [#285](https://github.com/owncloud/files_pdfviewer/issues/280)
 - provide translations in app release - [#280](https://github.com/owncloud/files_pdfviewer/issues/280)
 - Fix typo - [#271](https://github.com/owncloud/files_pdfviewer/issues/271)
 - Added PublicPage and NoCSRFRequired to allow canDownload for users without a session (public share) - [#269](https://github.com/owncloud/files_pdfviewer/issues/269)
