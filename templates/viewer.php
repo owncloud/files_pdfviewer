@@ -235,7 +235,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                 <button id="secondaryToolbarToggle" class="toolbarButton" title="Tools" tabindex="36" data-l10n-id="tools">
                   <span data-l10n-id="tools_label">Tools</span>
                 </button>
-                <button id="secondaryToolbarClose" class="toolbarButton" title="Close" tabindex="37">
+                <button id="secondaryToolbarClose" class="toolbarButton" title="<?php p($l->t("Close"))?>" tabindex="37">
                     <span><?php p($l->t("Close"))?></span>
                 </button>
               </div>
