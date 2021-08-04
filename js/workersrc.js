@@ -26,7 +26,10 @@ function deferredViewerConfig() {
 		PDFViewerApplicationOptions.set('workerSrc', document.getElementsByTagName('head')[0].getAttribute('data-workersrc'));
 		PDFViewerApplicationOptions.set('locale', getSanitizedCurrentLocale());
 		PDFViewerApplicationOptions.set('cMapUrl', document.getElementsByTagName('head')[0].getAttribute('data-cmapurl'));
+		PDFViewerApplicationOptions.set('sandboxBundleSrc', document.getElementsByTagName('head')[0].getAttribute('data-sandbox'));
 		PDFViewerApplicationOptions.set('printResolution', 300);
+		PDFViewerApplicationOptions.set('enableXfa', true);
+		PDFViewerApplicationOptions.set('renderInteractiveForms', true);
 	} catch (e) {}
 	pdfjsLib.externalLinkTarget = pdfjsLib.LinkTarget.BLANK;
 	pdfjsLib.isEvalSupported = false;

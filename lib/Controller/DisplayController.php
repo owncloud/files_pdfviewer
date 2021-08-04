@@ -54,13 +54,14 @@ class DisplayController extends Controller {
 		$params = [
 			'urlGenerator' => $this->urlGenerator,
 		];
+
 		$response = new TemplateResponse($this->appName, 'viewer', $params, 'blank');
 
 		$policy = new ContentSecurityPolicy();
 		$policy->addAllowedChildSrcDomain('\'self\'');
 		$policy->addAllowedFontDomain('data:');
 		$policy->addAllowedImageDomain('*');
-		$policy->addAllowedConnectDomain('blob:');
+		$policy->addAllowedConnectDomain('blob: data:');
 		$policy->allowEvalScript(true);
 		$response->setContentSecurityPolicy($policy);
 
