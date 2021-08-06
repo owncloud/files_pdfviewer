@@ -27,6 +27,7 @@
 			this falls back to download.
 			*/
 			if(!this.isSupportedBrowser()){
+				console.warn('files_pdfviewer can not be attached due to browser incompatibility');
 				return;
 			}
 
