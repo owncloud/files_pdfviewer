@@ -4,11 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [1.0.0] - 2021-08-05
+
+- Update mozilla/pdfj.js lib to 2.9 (support digital signatues) [#288](https://github.com/owncloud/files_pdfviewer/issues/288)
+- Dropped support for IE11 and (old) non-chromium-based Edge
+
 ## [0.12.2] - 2021-07-20
 
 ### Fixed
 
-- fix close l10n - [#285](https://github.com/owncloud/files_pdfviewer/issues/280)
+- fix close l10n - [#285](https://github.com/owncloud/files_pdfviewer/issues/285)
 - provide translations in app release - [#280](https://github.com/owncloud/files_pdfviewer/issues/280)
 - Fix typo - [#271](https://github.com/owncloud/files_pdfviewer/issues/271)
 - Added PublicPage and NoCSRFRequired to allow canDownload for users without a session (public share) - [#269](https://github.com/owncloud/files_pdfviewer/issues/269)
@@ -93,6 +98,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - First marketplace release
 
 
+[Unreleased]: https://github.com/owncloud/files_pdfviewer/compare/v1.0.0..master
+[1.0.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.12.2..v1.0.0
 [0.12.2]: https://github.com/owncloud/files_pdfviewer/compare/v0.12.1..v0.12.2
 [0.12.1]: https://github.com/owncloud/files_pdfviewer/compare/v0.12.0..v0.12.1
 [0.12.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.11.2..v0.12.0
