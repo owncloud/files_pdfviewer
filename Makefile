@@ -60,9 +60,9 @@ rebuild-pdfjs:
 	rm -rf vendor/pdfjs
 	bower install
 	cd vendor/pdfjs && npm install
-	cd vendor/pdfjs && gulp generic-es5
+	cd vendor/pdfjs && gulp generic-legacy
 	mkdir -p js/vendor
-	mv vendor/pdfjs/build/generic-es5 js/vendor/pdfjs
+	mv vendor/pdfjs/build/generic-legacy js/vendor/pdfjs
 
 
 # Builds the source and appstore package

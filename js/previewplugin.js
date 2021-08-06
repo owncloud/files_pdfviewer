@@ -20,6 +20,17 @@
 		 * @param fileList
 		 */
 		attach: function (fileList) {
+			/*
+			Since PDFjs dropped support for IE11 and old EDGE(not chromium based) up to version v2.7.570
+			(https://github.com/mozilla/pdf.js/releases/tag/v2.7.570)
+			We don't attach file actions on an unsupported browser,
+			this falls back to download.
+			*/
+			if(!this.isSupportedBrowser()){
+				console.warn('files_pdfviewer can not be attached due to browser incompatibility');
+				return;
+			}
+
 			this._extendFileActions(fileList.fileActions);
 		},
 
@@ -172,6 +183,13 @@
 				}
 			});
 			fileActions.setDefault('application/pdf', 'FilesPdfViewer');
+		},
+
+		isSupportedBrowser: function () {
+			var userAgent = navigator.userAgent;
+			var isInternetExplorer = userAgent.indexOf("MSIE ") > -1 || userAgent.indexOf("Trident/") > -1;
+			var isOldEdge = userAgent.indexOf("edge") > -1;
+			return !isInternetExplorer && !isOldEdge ;
 		}
 	};
 

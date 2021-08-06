@@ -2,7 +2,9 @@
   "name": "files_pdfviewer",
   "homepage": "https://github.com/owncloud/files_pdfviewer",
   "authors": [
-    "Victor Dubiniuk <dubiniuk@owncloud.com>"
+    "Victor Dubiniuk <dubiniuk@owncloud.com>",
+    "Jan Ackermann <jackermann@owncloud.com>",
+    "Jannik Stehle <jstehle@owncloud.com>"
   ],
   "description": "ownCloud pdf viewer app",
   "main": "",
@@ -16,9 +18,6 @@
     "tests"
   ],
   "dependencies": {
-    "pdfjs": "~2.5.x"
-  },
-  "resolutions": {
-    "pdfjs": "~2.5.x"
+    "pdfjs": "~2.9.x"
   }
 }
