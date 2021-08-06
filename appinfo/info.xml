@@ -6,7 +6,7 @@
     <description>
 This application integrates a browser-based PDF Viewer into ownCloud. It allows users to view their PDF files in the browser without the need to download the file.
 
-When this application is enabled, publicly shared PDF documents will also be shown in the PDF Viewer. The PDF viewer requires a modern browser and will not work with Microsoft® Internet Explorer®.
+When this application is enabled, publicly shared PDF documents will also be shown in the PDF Viewer. The PDF viewer requires a modern browser and will not work with Microsoft® Internet Explorer® and older versions of Microsoft Edge®.
 
 The integration is based on PDF.js which is a JavaScript library developed by Mozilla. You can learn more about the PDF.js project at https://mozilla.github.io/pdf.js/
     </description>
