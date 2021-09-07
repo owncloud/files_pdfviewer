@@ -13,6 +13,7 @@ config = {
     },
     "branches": [
         "master",
+        "0.x",
     ],
     "codestyle": True,
     "phpstan": True,
