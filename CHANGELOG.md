@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased] - XXXX-XX-XX
+
 ## [1.0.0] - 2021-08-05
 
 - Update mozilla/pdfj.js lib to 2.9 (support digital signatues) [#288](https://github.com/owncloud/files_pdfviewer/issues/288)
