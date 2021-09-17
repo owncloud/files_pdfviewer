@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [1.0.0] - 2021-08-05
 
+### Changed
 - Update mozilla/pdfj.js lib to 2.9 (support digital signatues) [#288](https://github.com/owncloud/files_pdfviewer/issues/288)
 - Dropped support for IE11 and (old) non-chromium-based Edge
 
