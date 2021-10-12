@@ -18,6 +18,6 @@
     "tests"
   ],
   "dependencies": {
-    "pdfjs": "~2.9.x"
+    "pdfjs": "~2.10.x"
   }
 }
