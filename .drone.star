@@ -29,6 +29,7 @@ config = {
                 "7.4",
             ],
         },
+    },
     "acceptance": False,
 }
 
@@ -1080,8 +1081,9 @@ def acceptance(ctx):
                              setupScality(testConfig["scalityS3"]) +
                              setupElasticSearch(testConfig["esVersion"]) +
                              testConfig["extraSetup"] +
+                             waitForEmailService(testConfig["emailNeeded"]) +
                              fixPermissions(testConfig["phpVersion"], testConfig["federatedServerNeeded"], params["selUserNeeded"]) +
-                             waitForBrowserService(testConfig["phpVersion"], isWebUI) +
+                             waitForBrowserService(testConfig["browser"]) +
                              [
                                  ({
                                      "name": "acceptance-tests",
@@ -1777,24 +1779,24 @@ def setupElasticSearch(esVersion):
         return []
 
     return [
-            {
-                "name": "wait-for-es",
-                "image": OC_CI_WAIT_FOR,
-                "commands": [
-                    "wait-for -it elasticsearch:9200 -t 600",
-                ],
-            },
-            {
-                "name": "setup-es",
-                "image": "owncloudci/php:7.4",
-                "pull": "always",
-                "commands": [
-                    "cd %s" % dir["server"],
-                    "php occ config:app:set search_elastic servers --value elasticsearch",
-                    "php occ search:index:reset --force",
-                ],
-            },
-        ]
+        {
+            "name": "wait-for-es",
+            "image": OC_CI_WAIT_FOR,
+            "commands": [
+                "wait-for -it elasticsearch:9200 -t 600",
+            ],
+        },
+        {
+            "name": "setup-es",
+            "image": "owncloudci/php:7.4",
+            "pull": "always",
+            "commands": [
+                "cd %s" % dir["server"],
+                "php occ config:app:set search_elastic servers --value elasticsearch",
+                "php occ search:index:reset --force",
+            ],
+        },
+    ]
 
 def fixPermissions(phpVersion, federatedServerNeeded, selUserNeeded = False):
     return [{
@@ -2098,3 +2100,15 @@ def waitForServer(federatedServerNeeded):
             "wait-for -it federated:80 -t 600",
         ] if federatedServerNeeded else []),
     }]
+
+def waitForEmailService(emailNeeded):
+    if emailNeeded:
+        return [{
+            "name": "wait-for-email",
+            "image": OC_CI_WAIT_FOR,
+            "commands": [
+                "wait-for -it email:8025 -t 600",
+            ],
+        }]
+
+    return []
