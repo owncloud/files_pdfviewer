@@ -3,6 +3,9 @@
   "config" : {
     "platform": {
       "php": "7.1"
+    },
+    "allow-plugins": {
+      "bamarni/composer-bin-plugin": true
     }
   },
   "require": {
