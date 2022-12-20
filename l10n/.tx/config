@@ -2,7 +2,7 @@
 host = https://www.transifex.com
 lang_map = ja_JP: ja
 
-[owncloud.files_pdfviewer]
+[o:owncloud-org:p:owncloud:r:files_pdfviewer]
 file_filter = <lang>/files_pdfviewer.po
 source_file = templates/files_pdfviewer.pot
 source_lang = en
