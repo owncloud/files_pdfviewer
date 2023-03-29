@@ -1,0 +1,8 @@
+OC.L10N.register(
+    "files_pdfviewer",
+    {
+    "This shared file does not have download permission and is possibly protected by secure view, please contact the owner of the file for granting permission or use a different viewer." : "This shared file does not have download permission and is possibly protected by secure view, please contact the owner of the file for granting permission or use a different viewer.",
+    "Open in PDF Viewer" : "Open in PDF Viewer",
+    "Close" : "Close"
+},
+"nplurals=2; plural=(n != 1);");
