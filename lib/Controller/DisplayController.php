@@ -20,7 +20,6 @@ use OCP\IURLGenerator;
 use OCP\Share\IManager;
 
 class DisplayController extends Controller {
-
 	/** @var IURLGenerator */
 	private $urlGenerator;
 
