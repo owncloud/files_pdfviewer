@@ -31,6 +31,7 @@ function deferredViewerConfig() {
 		PDFViewerApplicationOptions.set('printResolution', 300);
 		PDFViewerApplicationOptions.set('externalLinkTarget', pdfjsLib.LinkTarget.BLANK);
 		PDFViewerApplicationOptions.set('isEvalSupported', false);
+		PDFViewerApplicationOptions.set('enableScripting', false);
 	} catch (e) {
 	}
 }
