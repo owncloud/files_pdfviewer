@@ -3,6 +3,10 @@
 /** @var OCP\IURLGenerator $urlGenerator */
 $urlGenerator = $_['urlGenerator'];
 $version = \OCP\App::getAppVersion('files_pdfviewer');
+$enableScripting = false;
+if (\OC::$server->getConfig()->getSystemValue('files_pdfviewer.enableScripting', false) === 'yes') {
+	$enableScripting = true;
+}
 ?>
 <!DOCTYPE html>
 <!--
@@ -30,6 +34,7 @@ See https://github.com/adobe-type-tools/cmap-resources
 <head data-workersrc="<?php p($urlGenerator->linkTo('files_pdfviewer', 'js/vendor/pdfjs/build/pdf.worker.js')) ?>?v=<?php p($version) ?>"
 	  data-cmapurl="<?php p($urlGenerator->linkTo('files_pdfviewer', 'js/vendor/pdfjs/web/cmaps/'))?>"
 	  data-sandbox="<?php p($urlGenerator->linkTo('files_pdfviewer', 'js/vendor/pdfjs/build/pdf.sandbox.js'))?>"
+	  data-enableScripting="<?php p($enableScripting ? 'true' : 'false') ?>"
 >
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
