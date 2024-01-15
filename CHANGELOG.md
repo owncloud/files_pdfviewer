@@ -4,7 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased] - XXXX-XX-XX
+## [1.0.2] - 2024-01-16
+
+### Fixes
+
+- [#331](https://github.com/owncloud/files_pdfviewer/issues/331) - fix: hardening pdf processing by disabling scripting in pdf viewer
+
 
 ## [1.0.1] - 2021-10-05
 
