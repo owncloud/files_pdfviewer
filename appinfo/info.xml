@@ -13,7 +13,8 @@ The integration is based on PDF.js which is a JavaScript library developed by Mo
     <author>Thomas Müller, Lukas Reschke, Viktar Dubiniuk</author>
     <version>1.1.0</version>
     <dependencies>
-        <owncloud min-version="10.15" max-version="11" />
+        <owncloud min-version="11" max-version="11" />
+        <php min-version="8.3" />
     </dependencies>
     <default_enable/>
     <namespace>Files_PdfViewer</namespace>
