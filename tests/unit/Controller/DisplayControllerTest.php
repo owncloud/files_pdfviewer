@@ -72,7 +72,9 @@ class DisplayControllerTest extends TestCase {
 		$policy->addAllowedFontDomain('data:');
 		$policy->addAllowedImageDomain('*');
 		$policy->addAllowedConnectDomain('blob: data:');
-		$policy->allowEvalScript(true);
+		// CVE-2024-4367: the patched pdf.js no longer needs eval for rendering,
+		// so the controller explicitly disables 'unsafe-eval' in the CSP.
+		$policy->allowEvalScript(false);
 		$expectedResponse->setContentSecurityPolicy($policy);
 
 		$this->assertEquals($expectedResponse, $this->controller->showPdfViewer());
