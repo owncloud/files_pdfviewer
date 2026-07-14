@@ -14,7 +14,13 @@ function isBlobDownloadPopup () {
 	for (var i = 0; i < params.length; i++) {
 		var pair = params[i].split('=');
 		if (pair[0] === 'file') {
-			var value = decodeURIComponent(pair.slice(1).join('='));
+			var value;
+			try {
+				value = decodeURIComponent(pair.slice(1).join('='));
+			} catch (e) {
+				// A malformed %-sequence is never a genuine blob: popup URL.
+				return false;
+			}
 			return value.indexOf('blob:') === 0;
 		}
 	}
@@ -50,6 +56,7 @@ function deferredViewerConfig() {
 		var head = document.getElementsByTagName('head')[0];
 		enableScripting = head.getAttribute('data-enableScripting') === 'true';
 	} catch (e) {
+		// best-effort; keep the safe default (scripting disabled)
 	}
 	PDFViewerApplicationOptions.set('enableScripting', enableScripting);
 
@@ -70,6 +77,7 @@ function deferredViewerConfig() {
 		PDFViewerApplicationOptions.set('printResolution', 300);
 		PDFViewerApplicationOptions.set('externalLinkTarget', pdfjsLib.LinkTarget.BLANK);
 	} catch (e) {
+		// best-effort; the security-relevant options above are already set
 	}
 
 	// The locale lookup dereferences parent.OC and may throw when the viewer
@@ -78,6 +86,7 @@ function deferredViewerConfig() {
 	try {
 		PDFViewerApplicationOptions.set('locale', getSanitizedCurrentLocale());
 	} catch (e) {
+		// best-effort; locale is cosmetic and must not abort config
 	}
 }
 
@@ -90,4 +99,5 @@ parent.document.addEventListener('webviewerloaded', deferredViewerConfig, true);
 try {
 	parent.document.documentElement.lang = getSanitizedCurrentLocale();
 } catch (e) {
+	// best-effort; lang attribute is cosmetic
 }

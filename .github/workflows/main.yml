@@ -54,3 +54,16 @@ jobs:
     with:
       app-name: ${{ needs.get-vars.outputs.app-name }}
       php-versions: ${{ needs.get-vars.outputs.php-versions }}
+
+  security:
+    name: Security regression checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run CVE regression checks
+        run: make test-security

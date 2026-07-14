@@ -104,6 +104,12 @@ test-php-unit-dbg: ## Run php unit tests using phpdbg
 test-php-unit-dbg:
 	$(PHPUNITDBG) --configuration ./phpunit.xml --testsuite unit
 
+.PHONY: test-security
+test-security: ## Run the CVE regression checks (node)
+test-security:
+	node tests/security/verify-cve-2024-4367.mjs
+	node tests/security/test-blob-popup-detection.mjs
+
 .PHONY: test-php-style
 test-php-style: ## Run php-cs-fixer and check owncloud code-style
 test-php-style: vendor-bin/owncloud-codestyle/vendor

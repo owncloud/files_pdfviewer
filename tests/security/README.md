@@ -11,6 +11,9 @@ title, so it can be used to confirm exploitation without side effects.
 
 ### Automated check
 
+Run all of these with `make test-security`; they also run on every PR via the
+`Security regression checks` CI job. Each script exits non-zero on failure.
+
 `verify-cve-2024-4367.mjs` reproduces the two backported guards in isolation and
 asserts that:
 
@@ -20,14 +23,18 @@ asserts that:
   attacker string can reach `new Function(...)`, while the intentional `scale`
   identifiers are preserved.
 
-Run with `node tests/security/verify-cve-2024-4367.mjs`; every line must print
-`true`.
+> **Drift caveat:** guards A and B in this script are *reproductions* of the
+> logic, not the shipped code — the real code lives in a minified vendor bundle
+> that cannot be imported. To catch the bundle regressing away from these
+> reproductions (e.g. on a future pdf.js upgrade that drops the backport), the
+> script's "source tripwire" section (checks `S1`–`S4`) reads the actual
+> `pdf.js` / `pdf.worker.js` and fails if the guards are no longer present. The
+> manual end-to-end check below remains the authoritative verification.
 
 `test-blob-popup-detection.mjs` covers the `workersrc.js` frame-escape guard: it
 asserts that the genuine `?file=blob:...` attachment popup is allowed while an
 attacker-controlled `#?file=blob` hash fragment (which defeated the old
-`indexOf('?file=blob')` substring check) is rejected. Run with
-`node tests/security/test-blob-popup-detection.mjs`; every line must print
+`indexOf('?file=blob')` substring check) is rejected. Every line must print
 `PASS`.
 
 ### Manual end-to-end check
