@@ -6,7 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased] 
 
--
+### Fixes
+
+- Fix CVE-2024-4367: reject a non-numeric `/FontMatrix` and coerce glyph command
+  arguments to numbers so a malicious PDF font cannot inject JavaScript into the
+  pdf.js renderer, make the `isEvalSupported=false` hardening in `workersrc.js`
+  fail-safe, and explicitly disable `unsafe-eval` in the viewer
+  Content-Security-Policy (OC10-111)
 
 ## [1.0.2] - 2024-01-16
 

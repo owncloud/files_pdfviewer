@@ -61,7 +61,11 @@ class DisplayController extends Controller {
 		$policy->addAllowedFontDomain('data:');
 		$policy->addAllowedImageDomain('*');
 		$policy->addAllowedConnectDomain('blob: data:');
-		$policy->allowEvalScript(true);
+		// CVE-2024-4367: the patched pdf.js no longer needs eval for rendering.
+		// ContentSecurityPolicy allows 'unsafe-eval' by default, so we must
+		// explicitly disable it (not merely omit allowEvalScript(true)) to make
+		// the new Function() font-rendering sink unreachable in the browser.
+		$policy->allowEvalScript(false);
 		$response->setContentSecurityPolicy($policy);
 
 		return $response;

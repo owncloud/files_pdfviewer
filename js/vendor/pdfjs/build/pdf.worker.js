@@ -22678,6 +22678,17 @@ var PartialEvaluator = /*#__PURE__*/function () {
                 isInternalFont = !!fontFile;
 
               case 73:
+                // CVE-2024-4367: reject a /FontMatrix that is not exactly six
+                // numbers so an attacker-controlled string cannot flow into the
+                // glyph command list (and, with eval, into new Function()).
+                var fontMatrix = dict.getArray("FontMatrix");
+
+                if (!Array.isArray(fontMatrix) || fontMatrix.length !== 6 || fontMatrix.some(function (x) {
+                  return typeof x !== "number";
+                })) {
+                  fontMatrix = _util.FONT_IDENTITY_MATRIX;
+                }
+
                 properties = {
                   type: type,
                   name: fontName.name,
@@ -22691,7 +22702,7 @@ var PartialEvaluator = /*#__PURE__*/function () {
                   loadedName: baseDict.loadedName,
                   composite: composite,
                   fixedPitch: false,
-                  fontMatrix: dict.getArray("FontMatrix") || _util.FONT_IDENTITY_MATRIX,
+                  fontMatrix: fontMatrix,
                   firstChar: firstChar,
                   lastChar: lastChar,
                   toUnicode: toUnicode,

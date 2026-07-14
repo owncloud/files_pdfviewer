@@ -13233,7 +13233,23 @@ var FontFaceObject = /*#__PURE__*/function () {
         try {
           for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
             var current = _step3.value;
-            var args = current.args !== undefined ? current.args.join(",") : "";
+            var args = "";
+
+            if (current.args !== undefined) {
+              if (current.cmd === "scale") {
+                // The scale command intentionally passes the "size"/"-size"
+                // function parameters, not numeric literals.
+                args = current.args.join(",");
+              } else {
+                // CVE-2024-4367: never interpolate a non-number into the
+                // generated function body; replace anything that is not a
+                // number with 0.
+                args = current.args.map(function (arg) {
+                  return typeof arg === "number" ? arg : 0;
+                }).join(",");
+              }
+            }
+
             jsBuf.push("c.", current.cmd, "(", args, ");\n");
           }
         } catch (err) {
