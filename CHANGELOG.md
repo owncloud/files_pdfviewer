@@ -6,13 +6,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased] 
 
-### Fixes
 
+## [1.1.1] - 2026-07-22
+
+### Fixes
 - Fix CVE-2024-4367: reject a non-numeric `/FontMatrix` and coerce glyph command
   arguments to numbers so a malicious PDF font cannot inject JavaScript into the
   pdf.js renderer, make the `isEvalSupported=false` hardening in `workersrc.js`
   fail-safe, and explicitly disable `unsafe-eval` in the viewer
   Content-Security-Policy (OC10-111)
+
+## [1.1.0] - 2026-06-29
+
+### Changed
+- ownCloud 11 compatible release (oc 11.0.0-rc1).
 
 ## [1.0.2] - 2024-01-16
 
@@ -124,8 +131,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 ### Changed
 - First marketplace release
 
-
-[Unreleased]: https://github.com/owncloud/files_pdfviewer/compare/v1.0.2..master
+[Unreleased]: https://github.com/owncloud/files_pdfviewer/compare/v1.1.1..master
+[1.1.1]: https://github.com/owncloud/files_pdfviewer/compare/v1.1.0..v1.1.1
+[1.1.0]: https://github.com/owncloud/files_pdfviewer/compare/v1.0.2..v1.1.0
 [1.0.2]: https://github.com/owncloud/files_pdfviewer/compare/v1.0.1..v1.0.2
 [1.0.1]: https://github.com/owncloud/files_pdfviewer/compare/v1.0.0..v1.0.1
 [1.0.0]: https://github.com/owncloud/files_pdfviewer/compare/v0.12.2..v1.0.0
