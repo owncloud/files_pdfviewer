@@ -8,8 +8,10 @@
 .php_cs.cache
 .php-cs-fixer.cache
 
-# Composer
-vendor/
+# Composer. Anchored to the project root: an unanchored `vendor/` also silences
+# js/vendor/, where the vendored PDF.js build lives, so new files there were
+# ignored unless added with `git add -f`.
+/vendor/
 vendor-bin/**/vendor
 vendor-bin/**/composer.lock
 

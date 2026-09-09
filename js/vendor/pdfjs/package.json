@@ -1,0 +1,7 @@
+{
+  "name": "pdfjs-dist",
+  "version": "2.10.0",
+  "description": "Vendored, locally patched build of Mozilla PDF.js. Present so vulnerability scanners and SBOM tooling can inventory this library; see PATCHES.md for the applied patches and why the repository-root .trivyignore accepts CVE-2024-4367.",
+  "license": "Apache-2.0",
+  "private": true
+}

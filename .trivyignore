@@ -1,0 +1,12 @@
+# PDF.js is vendored as a built, locally patched 2.10.0 under
+# js/vendor/pdfjs/. Its version string still reads 2.10.0, so a scanner keyed on
+# that version reports advisories this copy has already fixed.
+#
+# CVE-2024-4367 (/FontMatrix code injection, fixed upstream in 4.2.67) is
+# backported in build/pdf.js and build/pdf.worker.js by commit 3358e60 (#351)
+# and marked in place with a CVE-2024-4367: comment.
+#
+# Documented in js/vendor/pdfjs/PATCHES.md, which also lists every other
+# pdfjs-dist advisory checked and why it does not apply. Re-check this entry
+# whenever the vendored copy is regenerated.
+CVE-2024-4367
