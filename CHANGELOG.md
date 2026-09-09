@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased] 
 
+### Added
+- Add `js/vendor/pdfjs/PATCHES.md` recording the vendored pdf.js version, the
+  CVE-2024-4367 backport applied to it and the advisory audit, plus a
+  `package.json` so vulnerability scanners and SBOM tooling can inventory the
+  library instead of missing it entirely
+  ([#41824](https://github.com/owncloud/core/issues/41824))
+
+### Fixes
+- Anchor the `vendor/` gitignore rule to the project root, so new files under
+  `js/vendor/` are no longer silently ignored
+  ([#41824](https://github.com/owncloud/core/issues/41824))
+- Remove the inert `dependabot.yml` from the repository root; only
+  `.github/dependabot.yml` is read by GitHub, and the two disagreed
+  ([#41824](https://github.com/owncloud/core/issues/41824))
+
 
 ## [1.1.1] - 2026-07-22
 
