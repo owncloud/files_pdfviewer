@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased] 
 
+## [1.1.2] - 2026-09-09
+
 ### Added
 - Add `js/vendor/pdfjs/PATCHES.md` recording the vendored pdf.js version, the
   CVE-2024-4367 backport applied to it and the advisory audit, plus a
@@ -21,6 +23,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
   `.github/dependabot.yml` is read by GitHub, and the two disagreed
   ([#41824](https://github.com/owncloud/core/issues/41824))
 
+### Changed
+- Repackaged so the release artifact contains only the app payload. The 1.1.1
+  release was published from the build working tree, so it shipped `.git/`,
+  `.github/`, `tests/`, `vendor-bin/` and `build/artifacts/` as part of the signed
+  app ([#41824](https://github.com/owncloud/core/issues/41824))
 
 ## [1.1.1] - 2026-07-22
 
@@ -146,7 +153,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 ### Changed
 - First marketplace release
 
-[Unreleased]: https://github.com/owncloud/files_pdfviewer/compare/v1.1.1..master
+[Unreleased]: https://github.com/owncloud/files_pdfviewer/compare/v1.1.2..master
+[1.1.2]: https://github.com/owncloud/files_pdfviewer/compare/v1.1.1..v1.1.2
 [1.1.1]: https://github.com/owncloud/files_pdfviewer/compare/v1.1.0..v1.1.1
 [1.1.0]: https://github.com/owncloud/files_pdfviewer/compare/v1.0.2..v1.1.0
 [1.0.2]: https://github.com/owncloud/files_pdfviewer/compare/v1.0.1..v1.0.2
