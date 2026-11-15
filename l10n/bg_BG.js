@@ -1,7 +1,7 @@
 OC.L10N.register(
     "files_pdfviewer",
     {
-    "This shared file does not have download permission and is possibly protected by secure view, please contact the owner of the file for granting permission or use a different viewer." : "За този споделен файл нямате необходимите права за изтегляне и вероятно е защитен със защитен преглед, моля свържете се със собственика на файла, за да ви предостави тези права, или използвайте друг преглед.",
+    "This shared file does not have download permission and is possibly protected by secure view, please contact the owner of the file for granting permission or use a different viewer." : "Този споделен файл няма разрешение за изтегляне и вероятно е защитен чрез режим на сигурен преглед; моля, свържете се със собственика на файла, за да получите разрешение, или използвайте друго приложение за преглед.",
     "Open in PDF Viewer" : "Отваряне в PDF преглед",
     "Close" : "Затваряне"
 },
